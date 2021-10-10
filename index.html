@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> 支援鑫</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      
+<section class="cover">
+    
+      
+      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
+        target="_blank"><img width="149" height="149" src="/images/forkme.png"
+          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/cover1.jpg" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">支援鑫</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        startDelay: 0,
+        typeSpeed: 200,
+        loop: true,
+        backSpeed: 100,
+        showCursor: true
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  
+  
+
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
+</div>
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
+</script>
+
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
+  
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/10/09/VMware%20vSphere%20%E4%B8%8B%20NVIDIA%20vGPU%20%E9%A9%B1%E5%8A%A8%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/"
+    >VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/10/09/VMware%20vSphere%20%E4%B8%8B%20NVIDIA%20vGPU%20%E9%A9%B1%E5%8A%A8%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2021-10-09T15:30:36.000Z" itemprop="datePublished">2021-10-09</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>在vSphere平台下安装vGPU驱动之前需要打开ESXi的SSH服务，方便来传输vib驱动安装包以及后面一些命令行的操作。</p>
+<p>ESXi需要加入vCenter，vGPU相关的一些配置都需要在vCenter下来修改。</p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png" alt="img"></a></p>
+<p>使用WinSCP把驱动vib传到ESXi的/tmp目录下</p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png" alt="img"></a></p>
+<p>安装驱动之前先检查一下GPU是否被正常识别到，SSH到ESXi，使用命令：<strong>lspci | grep NVIDIA</strong> 来检查。</p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png" alt="img"></a></p>
+<p>到/tmp目录下，赋予vib驱动包可执行权限，然后使用esxcli命令进行安装，注意ESXi主机需要处于维护模式，可以在web client上修改，也可以在安装时加上–maintenance-mode参数。</p>
+<p><strong>cd /tmp</strong><br><strong>chmod +x NVIDIA*esxcli software vib install -v /tmp/NVIDIA*.vib –maintenance-mode</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/149448893.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/149448893.png" alt="img"></a></p>
+<p>等待几分钟，安装成功以后会有提示信息，可能在安装信息中提示不需要重启，但是强烈建议重启一下主机来验证驱动是否正常，有碰到过重启以后驱动报错的情况。</p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png" alt="img"></a></p>
+<p>重启完主机以后使用 <strong>nvidia-smi</strong> 命令来验证驱动是否正常，正常情况下能看到类似如下信息：</p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png" alt="img"></a></p>
+<p>特别注意2点：1、ECC模式是否显示off  2、默认情况下vSphere会使用vsga模式，而不是vGPU模式，所以能看到最下面xorg条目，这个我们后面改。</p>
+<p>在部分时候，特别是使用全新的GPU，可能会看到nvidia-smi信息里面ECC区域不是off状态，而是0，这说明你现在的ECC是启用的状态，并不是所有vgpu都可以使用ECC，如果你不能确认你的环境是否需要启用ECC，那建议先关闭ECC。</p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png" alt="img"></a></p>
+<p>使用命令来关闭ECC，注意，启用或者关闭ECC都需要重启主机。</p>
+<p><strong>nvidia-smi -e 0</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png" alt="img"></a></p>
+<p>更多关于ECC的信息，请参考：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory">https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory</a></p>
+<p>在确认驱动状态没问题以后，我们登陆vCenter，定位到<strong>主机-配置-图形</strong>，编辑<strong>主机图形设置</strong>，可以看到默认是共享模式，也就是vsga，我们需要切换到<strong>“直接共享“</strong>才能使用vGPU。</p>
+<p>2种GPU分配策略，在有多个GPU的时候生效。</p>
+<p>默认最佳性能模式，会在所有可能的GPU上去运行虚拟机，即VM1运行在GPU1、VM2运行在GPU2，以此类推，尽可能平均的分布虚拟机，不会让GPU闲着。</p>
+<p>GPU整合模式，会在一个GPU核心上运行先启动的虚拟机，直到当前GPU没有资源才会去使用下一个GPU核心，这个模式多用在同一台服务器上运行多个vGPU profile的情况下。</p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/696802411.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/696802411.png" alt="img"></a></p>
+<p>除了主机的图形选项，针对每个GPU也都可以单独设置共享模式，第一次使用需要在这里再切换一下，主要是需要重启xorg服务来改变配置，不同vSphere版本界面可能不能，部分vSphere 6.5早期版本需要手动重启xorg服务。</p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/682515054.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/682515054.png" alt="img"></a></p>
+<p>更改成功以后就没有xorg条目了，可以开始使用vGPU了！</p>
+<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/51672901.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/51672901.png" alt="img"></a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/10/09/%E5%85%A8%E7%BD%91%E6%9C%80%E5%85%A8ESXI6-7%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E4%B8%8B%E8%BD%BD%E5%8C%85%E5%90%AB%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4%E7%89%88%E6%9C%AC%E5%8F%B7MD5SHA1/"
+    >全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/10/09/%E5%85%A8%E7%BD%91%E6%9C%80%E5%85%A8ESXI6-7%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E4%B8%8B%E8%BD%BD%E5%8C%85%E5%90%AB%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4%E7%89%88%E6%9C%AC%E5%8F%B7MD5SHA1/" class="article-date">
+  <time datetime="2021-10-09T15:30:36.000Z" itemprop="datePublished">2021-10-09</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>本文归纳整理了VMware-VMvisor-Installer 6.7 ESXI版本发布时间，对应的内部版本号，及MD5SUM、SHA1SUM值，下载地址可能随时失效，下载资源来自网络，下载后请核对MD5SUM、SHA1SUM值，</p>
+<p><strong>如下载地址无法点击，表示暂无下载地址！网盘分享默认密码****“1111”</strong></p>
+<p><strong>ESXI6.7****官方原版镜像：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>版本</strong></th>
+<th><strong>发布时间</strong></th>
+<th><strong>内部编号</strong></th>
+<th><strong>名称</strong></th>
+<th><strong>down1</strong></th>
+<th><strong>down2</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6.7U3b</td>
+<td>2019-12-05</td>
+<td>15160138</td>
+<td>VMware-VMvisor-Installer-201912001-15160138.x86_64.iso</td>
+<td><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1K4bZoWv9mFtDwuc-VGyPqA">down1</a></td>
+<td><a target="_blank" rel="noopener" href="https://down2.130.cloud/vmware/esxi6.7/VMware-VMvisor-Installer-201912001-15160138.x86_64.iso">donw2</a></td>
+</tr>
+<tr>
+<td>6.7U3</td>
+<td>2019-08-20</td>
+<td>14320388</td>
+<td>VMware-VMvisor-Installer-6.7.0.update03-14320388.x86_64.iso</td>
+<td><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1k0y4nsMoWUm2ToUFizq4Fw">down1</a></td>
+<td><a target="_blank" rel="noopener" href="https://down2.130.cloud/vmware/esxi6.7/VMware-VMvisor-Installer-6.7.0.update03-14320388.x86_64.iso">down2</a></td>
+</tr>
+<tr>
+<td>6.7U2</td>
+<td>2019-04-11</td>
+<td>13006603</td>
+<td>VMware-VMvisor-Installer-6.7.0.update02-13006603.x86_64.iso</td>
+<td><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1nltBdh36SGyn1sSmGfYoTA">down1</a></td>
+<td><a target="_blank" rel="noopener" href="https://down2.130.cloud/vmware/esxi6.7/VMware-VMvisor-Installer-6.7.0.update02-13006603.x86_64.iso">down2</a></td>
+</tr>
+<tr>
+<td>6.7U1</td>
+<td>2018-10-16</td>
+<td>10302608</td>
+<td>VMware-VMvisor-Installer-6.7.0.update01-10302608.x86_64.iso</td>
+<td><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1T0FzPdDQKQVO06Yvk7MMRg">down1</a></td>
+<td><a target="_blank" rel="noopener" href="https://down2.130.cloud/vmware/esxi6.7/VMware-VMvisor-Installer-6.7.0.update01-10302608.x86_64.iso">down2</a></td>
+</tr>
+<tr>
+<td>6.7</td>
+<td>2018-04-17</td>
+<td>8169922</td>
+<td>VMware-VMvisor-Installer-6.7.0-8169922.x86_64.iso</td>
+<td><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1_xXGxwU73tDFK3UPO51FiQ">down1</a></td>
+<td><a target="_blank" rel="noopener" href="https://down2.130.cloud/vmware/esxi6.7/VMware-VMvisor-Installer-6.7.0-8169922.x86_64.iso">down2</a></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>版本</strong></th>
+<th><strong>MD5SUM</strong></th>
+<th><strong>SHA1SUM</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6.7U3b</td>
+<td>562178fbcf2e582f116a874c358697de</td>
+<td>4864a0b745bc07b6507e12027d74d5ac14956d5c</td>
+</tr>
+<tr>
+<td>6.7U3</td>
+<td>cafb95ae04245eb3e93fed1602b0fd3b</td>
+<td>415f08313062d1f8d46162dc81a009dbdbc59b3b</td>
+</tr>
+<tr>
+<td>6.7U2</td>
+<td>a87ae18fdeb29c19a8b0c064a81498dc</td>
+<td>7905e7a2bd08e6825d17d3fa43fb2b9ce80f2412</td>
+</tr>
+<tr>
+<td>6.7U1</td>
+<td>e10c4c3fcc017faab9659f49b0baee97</td>
+<td>4635ecdb818330f42603aa91616463d9a70f5c8b</td>
+</tr>
+<tr>
+<td>6.7</td>
+<td>bd218f0f26510e690695116d8628e4af</td>
+<td>332731ffb6715cd7a469ce0f6b81aeda6f624be7</td>
+</tr>
+</tbody></table>
+<p><strong>ESXI6.7_DELL****官方镜像：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>版本</strong></th>
+<th><strong>发布时间</strong></th>
+<th><strong>名称</strong></th>
+<th><strong>down1</strong></th>
+<th><strong>down2</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6.7U3A04</td>
+<td>2020-07-22</td>
+<td>VMware-VMvisor-Installer-6.7.0.update03-15160138.x86_64-DellEMC_Customized-A04.iso</td>
+<td><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1kv6rr1RYZflGhfCa9X4KGA">down1</a></td>
+<td><a target="_blank" rel="noopener" href="https://dl.dell.com/FOLDER06032473M/1/VMware-VMvisor-Installer-6.7.0.update03-15160138.x86_64-DellEMC_Customized-A04.iso">down2</a></td>
+</tr>
+<tr>
+<td>6.7U3A03</td>
+<td>2020-03-09</td>
+<td>VMware-VMvisor-Installer-6.7.0.update03-15160138.x86_64-DellEMC_Customized-A03.iso</td>
+<td><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1h7JptODW2UvTjC712QQ1Kw">down1</a></td>
+<td><a target="_blank" rel="noopener" href="https://dl.dell.com/FOLDER06012675M/1/VMware-VMvisor-Installer-6.7.0.update03-15160138.x86_64-DellEMC_Customized-A03.iso">down2</a></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>版本</strong></th>
+<th><strong>MD5SUM</strong></th>
+<th><strong>SHA1SUM</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6.7U3A04</td>
+<td>5F4C614D3D8AFBF619182FE0AD07AE8B</td>
+<td>3A57CEB3EDAD6AA989200C7F64B8B6A0A771767B</td>
+</tr>
+<tr>
+<td>6.7U3A03</td>
+<td>317C97216AEDB6B2E31AE5E532F4818F</td>
+<td>7721F4CF91C8308F888315FB454F9EA79A1D4572</td>
+</tr>
+</tbody></table>
+<p><strong>ESXI6.7_HPE****官方镜像：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>版本</strong></th>
+<th><strong>发布时间</strong></th>
+<th><strong>名称</strong></th>
+<th><strong>down1</strong></th>
+<th><strong>down2</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6.7U3</td>
+<td>2020-10-05</td>
+<td>VMware-ESXi-6.7.0-Update3-16713306-HPE-Gen9plus-670.U3.10.6.0.83-Oct2020.iso</td>
+<td><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/12IlEqNIcxz9_lgPcFTnoMA">down1</a></td>
+<td><a target="_blank" rel="noopener" href="https://down2.130.cloud/vmware/esxi6.7_hpe/VMware-ESXi-6.7.0-Update3-16713306-HPE-Gen9plus-670.U3.10.6.0.83-Oct2020.iso">down2</a></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>版本</strong></th>
+<th><strong>MD5SUM</strong></th>
+<th><strong>SHA1SUM</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6.7U3</td>
+<td>899C03390C4B9E2952E78C107ECAA6DB</td>
+<td>6F38B0AB210B0CED9196C8F68F9A7E5C0199CE79</td>
+</tr>
+</tbody></table>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+  </article>
+  
+
+  
+</section>
+</div>
+
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2021
+        <i class="ri-heart-fill heart_icon"></i> zyz
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/favicon.png" alt="支援鑫"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
