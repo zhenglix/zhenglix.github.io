@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1</title>
+      <link href="/2021/10/09/quan-wang-zui-quan-esxi6-7-ge-ge-ban-ben-xia-zai-bao-han-fa-bu-shi-jian-ban-ben-hao-md5sha1/"/>
+      <url>/2021/10/09/quan-wang-zui-quan-esxi6-7-ge-ge-ban-ben-xia-zai-bao-han-fa-bu-shi-jian-ban-ben-hao-md5sha1/</url>
+      
+        <content type="html"><![CDATA[<p>本文归纳整理了VMware-VMvisor-Installer 6.7 ESXI版本发布时间，对应的内部版本号，及MD5SUM、SHA1SUM值，下载地址可能随时失效，下载资源来自网络，下载后请核对MD5SUM、SHA1SUM值，</p><p><strong>如下载地址无法点击，表示暂无下载地址！网盘分享默认密码****“1111”</strong></p><p><strong>ESXI6.7****官方原版镜像：</strong></p><table><thead><tr><th><strong>版本</strong></th><th><strong>发布时间</strong></th><th><strong>内部编号</strong></th><th><strong>名称</strong></th><th><strong>down1</strong></th><th><strong>down2</strong></th></tr></thead><tbody><tr><td>6.7U3b</td><td>2019-12-05</td><td>15160138</td><td>VMware-VMvisor-Installer-201912001-15160138.x86_64.iso</td><td><a href="https://pan.baidu.com/s/1K4bZoWv9mFtDwuc-VGyPqA">down1</a></td><td><a href="https://down2.130.cloud/vmware/esxi6.7/VMware-VMvisor-Installer-201912001-15160138.x86_64.iso">donw2</a></td></tr><tr><td>6.7U3</td><td>2019-08-20</td><td>14320388</td><td>VMware-VMvisor-Installer-6.7.0.update03-14320388.x86_64.iso</td><td><a href="https://pan.baidu.com/s/1k0y4nsMoWUm2ToUFizq4Fw">down1</a></td><td><a href="https://down2.130.cloud/vmware/esxi6.7/VMware-VMvisor-Installer-6.7.0.update03-14320388.x86_64.iso">down2</a></td></tr><tr><td>6.7U2</td><td>2019-04-11</td><td>13006603</td><td>VMware-VMvisor-Installer-6.7.0.update02-13006603.x86_64.iso</td><td><a href="https://pan.baidu.com/s/1nltBdh36SGyn1sSmGfYoTA">down1</a></td><td><a href="https://down2.130.cloud/vmware/esxi6.7/VMware-VMvisor-Installer-6.7.0.update02-13006603.x86_64.iso">down2</a></td></tr><tr><td>6.7U1</td><td>2018-10-16</td><td>10302608</td><td>VMware-VMvisor-Installer-6.7.0.update01-10302608.x86_64.iso</td><td><a href="https://pan.baidu.com/s/1T0FzPdDQKQVO06Yvk7MMRg">down1</a></td><td><a href="https://down2.130.cloud/vmware/esxi6.7/VMware-VMvisor-Installer-6.7.0.update01-10302608.x86_64.iso">down2</a></td></tr><tr><td>6.7</td><td>2018-04-17</td><td>8169922</td><td>VMware-VMvisor-Installer-6.7.0-8169922.x86_64.iso</td><td><a href="https://pan.baidu.com/s/1_xXGxwU73tDFK3UPO51FiQ">down1</a></td><td><a href="https://down2.130.cloud/vmware/esxi6.7/VMware-VMvisor-Installer-6.7.0-8169922.x86_64.iso">down2</a></td></tr></tbody></table><table><thead><tr><th><strong>版本</strong></th><th><strong>MD5SUM</strong></th><th><strong>SHA1SUM</strong></th></tr></thead><tbody><tr><td>6.7U3b</td><td>562178fbcf2e582f116a874c358697de</td><td>4864a0b745bc07b6507e12027d74d5ac14956d5c</td></tr><tr><td>6.7U3</td><td>cafb95ae04245eb3e93fed1602b0fd3b</td><td>415f08313062d1f8d46162dc81a009dbdbc59b3b</td></tr><tr><td>6.7U2</td><td>a87ae18fdeb29c19a8b0c064a81498dc</td><td>7905e7a2bd08e6825d17d3fa43fb2b9ce80f2412</td></tr><tr><td>6.7U1</td><td>e10c4c3fcc017faab9659f49b0baee97</td><td>4635ecdb818330f42603aa91616463d9a70f5c8b</td></tr><tr><td>6.7</td><td>bd218f0f26510e690695116d8628e4af</td><td>332731ffb6715cd7a469ce0f6b81aeda6f624be7</td></tr></tbody></table><p><strong>ESXI6.7_DELL****官方镜像：</strong></p><table><thead><tr><th><strong>版本</strong></th><th><strong>发布时间</strong></th><th><strong>名称</strong></th><th><strong>down1</strong></th><th><strong>down2</strong></th></tr></thead><tbody><tr><td>6.7U3A04</td><td>2020-07-22</td><td>VMware-VMvisor-Installer-6.7.0.update03-15160138.x86_64-DellEMC_Customized-A04.iso</td><td><a href="https://pan.baidu.com/s/1kv6rr1RYZflGhfCa9X4KGA">down1</a></td><td><a href="https://dl.dell.com/FOLDER06032473M/1/VMware-VMvisor-Installer-6.7.0.update03-15160138.x86_64-DellEMC_Customized-A04.iso">down2</a></td></tr><tr><td>6.7U3A03</td><td>2020-03-09</td><td>VMware-VMvisor-Installer-6.7.0.update03-15160138.x86_64-DellEMC_Customized-A03.iso</td><td><a href="https://pan.baidu.com/s/1h7JptODW2UvTjC712QQ1Kw">down1</a></td><td><a href="https://dl.dell.com/FOLDER06012675M/1/VMware-VMvisor-Installer-6.7.0.update03-15160138.x86_64-DellEMC_Customized-A03.iso">down2</a></td></tr></tbody></table><table><thead><tr><th><strong>版本</strong></th><th><strong>MD5SUM</strong></th><th><strong>SHA1SUM</strong></th></tr></thead><tbody><tr><td>6.7U3A04</td><td>5F4C614D3D8AFBF619182FE0AD07AE8B</td><td>3A57CEB3EDAD6AA989200C7F64B8B6A0A771767B</td></tr><tr><td>6.7U3A03</td><td>317C97216AEDB6B2E31AE5E532F4818F</td><td>7721F4CF91C8308F888315FB454F9EA79A1D4572</td></tr></tbody></table><p><strong>ESXI6.7_HPE****官方镜像：</strong></p><table><thead><tr><th><strong>版本</strong></th><th><strong>发布时间</strong></th><th><strong>名称</strong></th><th><strong>down1</strong></th><th><strong>down2</strong></th></tr></thead><tbody><tr><td>6.7U3</td><td>2020-10-05</td><td>VMware-ESXi-6.7.0-Update3-16713306-HPE-Gen9plus-670.U3.10.6.0.83-Oct2020.iso</td><td><a href="https://pan.baidu.com/s/12IlEqNIcxz9_lgPcFTnoMA">down1</a></td><td><a href="https://down2.130.cloud/vmware/esxi6.7_hpe/VMware-ESXi-6.7.0-Update3-16713306-HPE-Gen9plus-670.U3.10.6.0.83-Oct2020.iso">down2</a></td></tr></tbody></table><table><thead><tr><th><strong>版本</strong></th><th><strong>MD5SUM</strong></th><th><strong>SHA1SUM</strong></th></tr></thead><tbody><tr><td>6.7U3</td><td>899C03390C4B9E2952E78C107ECAA6DB</td><td>6F38B0AB210B0CED9196C8F68F9A7E5C0199CE79</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 虚拟机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vSphere </tag>
+            
+            <tag> ESXI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置</title>
+      <link href="/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/"/>
+      <url>/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/</url>
+      
+        <content type="html"><![CDATA[<p>在vSphere平台下安装vGPU驱动之前需要打开ESXi的SSH服务，方便来传输vib驱动安装包以及后面一些命令行的操作。</p><p>ESXi需要加入vCenter，vGPU相关的一些配置都需要在vCenter下来修改。</p><p><a href="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png" alt="img"></a></p><p>使用WinSCP把驱动vib传到ESXi的/tmp目录下</p><p><a href="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png" alt="img"></a></p><p>安装驱动之前先检查一下GPU是否被正常识别到，SSH到ESXi，使用命令：<strong>lspci | grep NVIDIA</strong> 来检查。</p><p><a href="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png" alt="img"></a></p><p>到/tmp目录下，赋予vib驱动包可执行权限，然后使用esxcli命令进行安装，注意ESXi主机需要处于维护模式，可以在web client上修改，也可以在安装时加上–maintenance-mode参数。</p><pre class=" language-cmd"><code class="language-cmd">cd /tmpchmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mode</code></pre><p><a href="https://www.dingqian.net/usr/uploads/2020/03/149448893.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/149448893.png" alt="img"></a></p><p>等待几分钟，安装成功以后会有提示信息，可能在安装信息中提示不需要重启，但是强烈建议重启一下主机来验证驱动是否正常，有碰到过重启以后驱动报错的情况。</p><p><a href="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png" alt="img"></a></p><p>重启完主机以后使用 <strong>nvidia-smi</strong> 命令来验证驱动是否正常，正常情况下能看到类似如下信息：</p><p><a href="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png" alt="img"></a></p><p>特别注意2点：1、ECC模式是否显示off  2、默认情况下vSphere会使用vsga模式，而不是vGPU模式，所以能看到最下面xorg条目，这个我们后面改。</p><p>在部分时候，特别是使用全新的GPU，可能会看到nvidia-smi信息里面ECC区域不是off状态，而是0，这说明你现在的ECC是启用的状态，并不是所有vgpu都可以使用ECC，如果你不能确认你的环境是否需要启用ECC，那建议先关闭ECC。</p><p><a href="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png" alt="img"></a></p><p>使用命令来关闭ECC，注意，启用或者关闭ECC都需要重启主机。</p><p><strong>nvidia-smi -e 0</strong></p><p><a href="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png" alt="img"></a></p><p>更多关于ECC的信息，请参考：</p><p><a href="https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory">https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory</a></p><p>在确认驱动状态没问题以后，我们登陆vCenter，定位到<strong>主机-配置-图形</strong>，编辑<strong>主机图形设置</strong>，可以看到默认是共享模式，也就是vsga，我们需要切换到<strong>“直接共享“</strong>才能使用vGPU。</p><p>2种GPU分配策略，在有多个GPU的时候生效。</p><p>默认最佳性能模式，会在所有可能的GPU上去运行虚拟机，即VM1运行在GPU1、VM2运行在GPU2，以此类推，尽可能平均的分布虚拟机，不会让GPU闲着。</p><p>GPU整合模式，会在一个GPU核心上运行先启动的虚拟机，直到当前GPU没有资源才会去使用下一个GPU核心，这个模式多用在同一台服务器上运行多个vGPU profile的情况下。</p><p><a href="https://www.dingqian.net/usr/uploads/2020/03/696802411.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/696802411.png" alt="img"></a></p><p>除了主机的图形选项，针对每个GPU也都可以单独设置共享模式，第一次使用需要在这里再切换一下，主要是需要重启xorg服务来改变配置，不同vSphere版本界面可能不能，部分vSphere 6.5早期版本需要手动重启xorg服务。</p><p><a href="https://www.dingqian.net/usr/uploads/2020/03/682515054.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/682515054.png" alt="img"></a></p><p>更改成功以后就没有xorg条目了，可以开始使用vGPU了！</p><p><a href="https://www.dingqian.net/usr/uploads/2020/03/51672901.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/51672901.png" alt="img"></a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 虚拟机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vSphere </tag>
+            
+            <tag> vGPU </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
