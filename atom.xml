@@ -6,7 +6,7 @@
   <link href="http://www.郑.网站/atom.xml" rel="self"/>
   
   <link href="http://www.郑.网站/"/>
-  <updated>2021-10-12T03:32:21.560Z</updated>
+  <updated>2021-10-12T03:40:47.984Z</updated>
   <id>http://www.郑.网站/</id>
   
   <author>
@@ -15,33 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1</title>
-    <link href="http://www.郑.网站/2021/10/09/quan-wang-zui-quan-esxi6-7-ge-ge-ban-ben-xia-zai-bao-han-fa-bu-shi-jian-ban-ben-hao-md5sha1/"/>
-    <id>http://www.郑.网站/2021/10/09/quan-wang-zui-quan-esxi6-7-ge-ge-ban-ben-xia-zai-bao-han-fa-bu-shi-jian-ban-ben-hao-md5sha1/</id>
-    <published>2021-10-09T15:30:36.000Z</published>
-    <updated>2021-10-12T03:32:21.560Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;本文归纳整理了VMware-VMvisor-Installer 6.7</summary>
-        
-      
-    
-    
-    
-    <category term="虚拟机" scheme="http://www.郑.网站/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-    
-    <category term="vSphere" scheme="http://www.郑.网站/tags/vSphere/"/>
-    
-    <category term="ESXI" scheme="http://www.郑.网站/tags/ESXI/"/>
-    
-  </entry>
   
   <entry>
     <title>VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置</title>
@@ -69,6 +42,33 @@
     <category term="vSphere" scheme="http://www.郑.网站/tags/vSphere/"/>
     
     <category term="vGPU" scheme="http://www.郑.网站/tags/vGPU/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1</title>
+    <link href="http://www.郑.网站/2021/10/09/quan-wang-zui-quan-esxi6-7-ge-ge-ban-ben-xia-zai-bao-han-fa-bu-shi-jian-ban-ben-hao-md5sha1/"/>
+    <id>http://www.郑.网站/2021/10/09/quan-wang-zui-quan-esxi6-7-ge-ge-ban-ben-xia-zai-bao-han-fa-bu-shi-jian-ban-ben-hao-md5sha1/</id>
+    <published>2021-10-09T15:30:36.000Z</published>
+    <updated>2021-10-12T03:32:21.560Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本文归纳整理了VMware-VMvisor-Installer 6.7</summary>
+        
+      
+    
+    
+    
+    <category term="虚拟机" scheme="http://www.郑.网站/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+    
+    <category term="vSphere" scheme="http://www.郑.网站/tags/vSphere/"/>
+    
+    <category term="ESXI" scheme="http://www.郑.网站/tags/ESXI/"/>
     
   </entry>
   
