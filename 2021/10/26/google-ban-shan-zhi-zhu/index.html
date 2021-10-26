@@ -7,7 +7,7 @@ charset="utf-8"></script>
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置, 支援鑫">
+    <meta name="keywords" content="Google搬山之术, 支援鑫">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@ charset="utf-8"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置 | 支援鑫</title>
+    <title>Google搬山之术 | 支援鑫</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -291,12 +291,12 @@ charset="utf-8"></script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置</h1>
+                    <h1 class="description center-align post-title">Google搬山之术</h1>
                 </div>
             </div>
         </div>
@@ -412,12 +412,12 @@ charset="utf-8"></script>
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vSphere/">
-                                <span class="chip bg-color">vSphere</span>
+                            <a href="/tags/Google/">
+                                <span class="chip bg-color">Google</span>
                             </a>
                         
-                            <a href="/tags/vGPU/">
-                                <span class="chip bg-color">vGPU</span>
+                            <a href="/tags/Google-Drive/">
+                                <span class="chip bg-color">Google Drive</span>
                             </a>
                         
                     </div>
@@ -428,8 +428,8 @@ charset="utf-8"></script>
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="post-category">
-                                虚拟机
+                            <a href="/categories/Google/" class="post-category">
+                                Google
                             </a>
                         
                     </div>
@@ -441,7 +441,7 @@ charset="utf-8"></script>
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-09
+                    2021-10-26
                 </div>
                 
 
@@ -450,14 +450,14 @@ charset="utf-8"></script>
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    781
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    13 分
                 </div>
                 
 
@@ -477,39 +477,205 @@ charset="utf-8"></script>
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在vSphere平台下安装vGPU驱动之前需要打开ESXi的SSH服务，方便来传输vib驱动安装包以及后面一些命令行的操作。</p>
-<p>ESXi需要加入vCenter，vGPU相关的一些配置都需要在vCenter下来修改。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png" alt="img"></a></p>
-<p>使用WinSCP把驱动vib传到ESXi的/tmp目录下</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png" alt="img"></a></p>
-<p>安装驱动之前先检查一下GPU是否被正常识别到，SSH到ESXi，使用命令：<strong>lspci | grep NVIDIA</strong> 来检查。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png" alt="img"></a></p>
-<p>到/tmp目录下，赋予vib驱动包可执行权限，然后使用esxcli命令进行安装，注意ESXi主机需要处于维护模式，可以在web client上修改，也可以在安装时加上–maintenance-mode参数。</p>
-<pre class=" language-cmd"><code class="language-cmd">cd /tmp
-chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mode
+                <h2 id="系统环境：-CentOS-7-x64"><a href="#系统环境：-CentOS-7-x64" class="headerlink" title="系统环境： CentOS 7 x64"></a><strong>系统环境：</strong> CentOS 7 x64</h2><p>Google Drive 是个好东西，无限容量配合上 Rclone 这样的 API 工具，简直是资源收集的神器。</p>
+<p>不过谷歌对于每个账户的 API 限制是 750G / 24小时 ，对于各位搬运道人来说每天只搬运 750 G 的资源肯定是不够的。最近了解到一个新的神器 - fclone（项目地址：<a target="_blank" rel="noopener" href="http://github.com/mawaya/rclone">http://github.com/mawaya/rclone</a>），可以看作是 Rclone 的升级版，借助它，再搭配一些奇技淫巧，就可以突破每天 750 G 的 API 限制了。</p>
+<p>原理:单日 750 G 的限制是谷歌对每个账号进行的限制，而我们可以借助谷歌开发者平台创建一些项目（Project），每个项目下可以创建很多服务账号（即 Service Accounts ，以下简称 SA），每个 SA 都有自己的 API ，也就是说每个 SA 每天都有 750 G 的限额。通过赋予这些 SA 对于【源盘】（即待转存资源的存放位置，可以是个人盘的共享目录，团队盘或团队盘内的文件夹）和【目的盘】（即资源转存后的存放位置，可以是团队盘或团队盘内的文件夹）的编辑权限，再通过 fclone ，当每个 SA 达到 750 G 限制后自动切换，就可以突破单账号的单日 750 G 限制。</p>
+<p>其中，每个谷歌账号可以创建最多 12 个项目，每个项目下可以生成最多 100 个 SA ，即使只使用 1 个项目，也可以实现一天搬运 1 x 100 x 750 G = 75 T ，相信对大部分人来说已经足够了，不够的话多创建几个项目就行（注意每个团队盘最多添加 600 个账号）。</p>
+<h2 id="配置过程："><a href="#配置过程：" class="headerlink" title="配置过程："></a>配置过程：</h2><h2 id="1-借助-AutoRclone-批量生成-SA"><a href="#1-借助-AutoRclone-批量生成-SA" class="headerlink" title="1.借助 AutoRclone 批量生成 SA"></a>1.借助 AutoRclone 批量生成 SA</h2><p>批量生成 SA 需要用到另外一个项目 - AutoRclone（项目地址：<a target="_blank" rel="noopener" href="http://github.com/xyou365/AutoRclone">http://github.com/xyou365/AutoRclone)</a></p>
+<p>首先安装 python 3 和 AutoRclone：</p>
+<pre><code>yum install -y python3 python3-pip git # 安装系统依赖 
+git clone http://github.com/xyou365/AutoRclone # 拉取 AutoRclone 项目
+cd AutoRclone # 进入项目文件夹 pip3 install -r requirements.txt # 安装项目依赖
 </code></pre>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/149448893.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/149448893.png" alt="img"></a></p>
-<p>等待几分钟，安装成功以后会有提示信息，可能在安装信息中提示不需要重启，但是强烈建议重启一下主机来验证驱动是否正常，有碰到过重启以后驱动报错的情况。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png" alt="img"></a></p>
-<p>重启完主机以后使用 <strong>nvidia-smi</strong> 命令来验证驱动是否正常，正常情况下能看到类似如下信息：</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png" alt="img"></a></p>
-<p>特别注意2点：1、ECC模式是否显示off  2、默认情况下vSphere会使用vsga模式，而不是vGPU模式，所以能看到最下面xorg条目，这个我们后面改。</p>
-<p>在部分时候，特别是使用全新的GPU，可能会看到nvidia-smi信息里面ECC区域不是off状态，而是0，这说明你现在的ECC是启用的状态，并不是所有vgpu都可以使用ECC，如果你不能确认你的环境是否需要启用ECC，那建议先关闭ECC。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png" alt="img"></a></p>
-<p>使用命令来关闭ECC，注意，启用或者关闭ECC都需要重启主机。</p>
-<p><strong>nvidia-smi -e 0</strong></p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png" alt="img"></a></p>
-<p>更多关于ECC的信息，请参考：</p>
-<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory">https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory</a></p>
-<p>在确认驱动状态没问题以后，我们登陆vCenter，定位到<strong>主机-配置-图形</strong>，编辑<strong>主机图形设置</strong>，可以看到默认是共享模式，也就是vsga，我们需要切换到<strong>“直接共享“</strong>才能使用vGPU。</p>
-<p>2种GPU分配策略，在有多个GPU的时候生效。</p>
-<p>默认最佳性能模式，会在所有可能的GPU上去运行虚拟机，即VM1运行在GPU1、VM2运行在GPU2，以此类推，尽可能平均的分布虚拟机，不会让GPU闲着。</p>
-<p>GPU整合模式，会在一个GPU核心上运行先启动的虚拟机，直到当前GPU没有资源才会去使用下一个GPU核心，这个模式多用在同一台服务器上运行多个vGPU profile的情况下。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/696802411.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/696802411.png" alt="img"></a></p>
-<p>除了主机的图形选项，针对每个GPU也都可以单独设置共享模式，第一次使用需要在这里再切换一下，主要是需要重启xorg服务来改变配置，不同vSphere版本界面可能不能，部分vSphere 6.5早期版本需要手动重启xorg服务。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/682515054.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/682515054.png" alt="img"></a></p>
-<p>更改成功以后就没有xorg条目了，可以开始使用vGPU了！</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/51672901.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/51672901.png" alt="img"></a></p>
+<p>然后打开这个地址：<a target="_blank" rel="noopener" href="http://developers.google.com/drive/api/v3/quickstart/python">http://developers.google.com/drive/api/v3/quickstart/python</a> ，点击【Step 1: Turn on the Drive API】下面的 <code>Enable the Drive API</code> 按钮，弹出的【Configure your OAuth client】对话框中保持默认的 <code>Desktop app</code> 不要动，点击右下角 <code>CREATE</code> 按钮，开启成功之后点击 <code>DOWNLOAD CLIENT CONFIGURATION</code> 下载生成的 <code>credentials.json</code> ，再将下载到本地的 <code>credentials.json</code> 上传至服务器的 <code>AutoRclone</code> 文件夹下。</p>
+<ul>
+<li><p>快速方法（不推荐，有时会出现 bug）：此时回到 SSH ，执行 <code>python3 gen_sa_accounts.py --quick-setup 1</code> ，复制返回的网址至浏览器打开，登陆上一步生成 <code>credientials.json</code> 文件时使用的账号，选择 <code>允许</code> ，然后复制返回的授权代码，粘贴至 SSH 终端，再复制新返回的网址至浏览器打开，使用刚才的账号登陆，点击 <code>启用</code> ，回到 SSH 终端内按下回车，此时应该开始创建 SA 了，稍等片刻完成后可以看到 <code>/root/AutoRclone/accounts/</code> 目录下出现了一大堆 <code>.json</code> 后缀的 SA 授权文件。</p>
+</li>
+<li><p>手动方法（推荐）：</p>
+<ol>
+<li><p>回到 SSH ，执行 </p>
+<pre><code>python3 gen_sa_accounts.py --list-projects
+</code></pre>
+<p>；</p>
+<ul>
+<li>如果之前没有创建过项目的话返回值应该是空的，那么此时执行 <code>python3 gen_sa_accounts.py --create-projects 1</code> 来新建一个项目，之后再次 <code>python3 gen_sa_accounts.py --list-projects</code>，复制一下新建的项目名称，下一步要用到；</li>
+<li>如果已存在项目，且要使用已有项目来生成 SA（请确保你知道自己在做什么），那么复制一下想要生成 SA 的项目名称，否则参考上一条的步骤来新建一个项目；</li>
+</ul>
+</li>
+<li><p>执行 <code>python3 gen_sa_accounts.py --enable-services ProjectName</code> 为项目开启所需要的服务，<code>ProjectName</code> 为上一步复制的项目名称，开启方法参考上文【快速方法】中的描述；</p>
+</li>
+<li><p>执行 <code>python3 gen_sa_accounts.py --create-sas ProjectName</code> 为项目生成 SA；</p>
+</li>
+<li><p>执行 <code>python3 gen_sa_accounts.py --download-keys ProjectName</code> 下载项目中 SA 的授权文件，稍等片刻 <code>~/AutoRclone/accounts/</code> 目录下应该出现了一大堆 <code>.json</code> 后缀的 SA 授权文件。</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>这些授权文件就是本文搬山之术的核心，其中记录了每个 SA 相应的权限信息。</p>
+<h2 id="2-为-SA-添加权限"><a href="#2-为-SA-添加权限" class="headerlink" title="2.为 SA 添加权限"></a>2.为 SA 添加权限</h2><p>这个部分非常繁琐，主要是因为这一过程俺只能手动完成，如果你有 G-Suite 管理员权限，那么可以参考 通过</p>
+<pre><code>python3 add_to_google_group.py -g **@***.com （创建一个群组，创建好你会获得一个类似域名邮箱的地址 **@***.com）
+</code></pre>
+<p>来快速添加，下面是手动方法：</p>
+<p>在此处：<a target="_blank" rel="noopener" href="http://console.developers.google.com/apis/dashboard">http://console.developers.google.com/apis/dashboard</a> ，点击左侧的 <code>凭据</code> 可以看到创建好的项目及 SA ，自行想办法将 SA 的邮箱地址保存下来（快速提取 SA 的邮箱地址可以参考这篇文章：<a target="_blank" rel="noopener" href="http://fxxkr.com/2020/04/06/onekey-print-email-from-google-sa-json/">一行命令提取 SA 文件中 email 自动10行分组 – FXXKR LAB</a> ）。</p>
+<p>接下来创建群组。打开 <a target="_blank" rel="noopener" href="http://groups.google.com/">http://groups.google.com/</a> ，点击左上角的 <code>新建群组</code> ，填写相关信息后新建一个群组，建立好后点击右上角 <code>管理群组</code> ，点击左侧 <code>直接添加成员</code> ，将刚才保存的 SA 邮箱粘贴过来，注意每次只能添加 10 个，24 小时内只能添加 100 个，每个群组最多添加 600 个，邮箱地址间使用英文逗号分隔。</p>
+<p>全部添加好之后点击右上角 <code>关于</code> ，记下【群组电子邮件】的地址，之后要对所有加入了群组的 SA 添加权限时，只需要添加至这个群组邮箱就行了。</p>
+<h2 id="3-使用-fclone-开始搬山"><a href="#3-使用-fclone-开始搬山" class="headerlink" title="3.使用 fclone 开始搬山"></a>3.使用 fclone 开始搬山</h2><p>繁琐的配置过程完成后，安装 fclone ：</p>
+<p>编辑 Rclone 配置文件：</p>
+<pre><code>vim ~/.config/rclone/rclone.conf
+</code></pre>
+<p>默认的配置文件路径在这里，不确定的话可以输入 <code>fclone config file</code> 来查看。</p>
+<p>在最后加上下面内容：</p>
+<pre><code>[gc] 
+type = drive 
+scope = drive 
+service_account_file = /root/AutoRclone/accounts/1.json (SA 账号授权文件的文件夹路径下任意一个 SA 账号授权文件的路径) 
+service_account_file_path = /root/AutoRclone/accounts/ (SA 账号授权文件的文件夹路径，不要漏了最后的/)
+</code></pre>
+<p>用法：</p>
+<p>命令参数参考 Rclone ，都是一样的，直接将 <code>rclone</code> 换成 <code>fclone</code> 即可无障碍使用（Rclone 怎么用呢，请参考 <a target="_blank" rel="noopener" href="http://wvw.lbdcj.top/835.html">这篇文章</a> ）；</p>
+<p>唯一不一样的地方在于，原版 Rclone 如果跨团队盘或者共享文件夹，需要多个配置盘符用于操作，gclone 支持对目录和文件的 ID 进行操作，搬运别人公开分享的文件时非常方便：</p>
+<ol>
+<li><p>目录 ID ：共享目录和团队盘应该带 </p>
+<pre><code>--drive-server-side-across-configs
+</code></pre>
+<p>：</p>
+<pre><code>fclone copy gc:&#123;【源盘】ID&#125; gc:&#123;【目的盘】ID&#125; --drive-server-side-across-configs
+</code></pre>
+<p>目录 ID 可以是：普通目录，共享目录，团队盘；</p>
+<p>也支持目录 ID 后跟后续路径：</p>
+<pre><code>fclone copy gc:&#123;【源盘】ID&#125; gc:&#123;【目的盘】ID&#125;/media/ --drive-server-side-across-configs
+</code></pre>
+</li>
+<li><p>文件 ID：共享目录和团队盘应该带 </p>
+<pre><code>--drive-server-side-across-configs
+</code></pre>
+<p>：</p>
+<pre><code>fclone copy gc:&#123;共享文件的 ID&#125; gc:&#123;【目的盘】ID&#125; --drive-server-side-across-configs
+</code></pre>
+<p>支持目录 ID 后，跟后续路径：</p>
+<pre><code>fclone copy gc:&#123;共享文件的 ID&#125; gc:&#123;【目的盘】ID&#125;/media/ --drive-server-side-across-configs
+</code></pre>
+</li>
+</ol>
+<blockquote>
+<p>注意：命令中如果使用 ID 格式来指定路径，需要用花括号括起来，不然程序会认为那一串乱码一样的东西是文件夹名字而不是目录 ID。</p>
+</blockquote>
+<p>举个栗子：</p>
+<pre><code>fclone copy gc:&#123;0App-QeDCIy_mUk9PVA&#125; gc:&#123;10zOvIf8yBmIuZgBfC3rcDKWHIlODZjXF&#125;/media/ --drive-server-side-across-configs -P
+</code></pre>
+<p>如何查看团队盘，文件夹以及文件的 ID ：</p>
+<ul>
+<li>浏览器中打开对应的团队盘 / 文件夹 / 文件，此时查看地址栏中类似 <code>http://drive.google.com/drive/u/2/folders/0App-QeDCIy_mUk9PVA</code> 这样的地址，其中末尾的 <code>0App-QeDCIy_mUk9PVA</code> 就是相应的团队盘 / 文件夹 / 文件对应的 ID 了，如果是别人分享出来的内容，那么结尾一般会多 <code>?usp=sharing</code> 这一段，把这段删掉，只保留 ID 就可以了。</li>
+</ul>
+<h2 id="4-一些注意事项"><a href="#4-一些注意事项" class="headerlink" title="4.一些注意事项"></a>4.一些注意事项</h2><ol>
+<li><p>生成 SA 及创建 Google Groups 使用普通的谷歌账号就可以；</p>
+</li>
+<li><p>创建好 SA ，并将其加入到群组之后，对于需要搬运的资源，保证【源盘】和【目的盘】都给这个群组的【群组邮箱】权限就能搬了，【源盘】有读取权限就够了，【目的盘】需要编辑权限；</p>
+</li>
+<li><p>基于以上两点，即使你没有 G-Suite 账号（即没法自己开团队盘），只要加入了别人开给你的团队盘（网上有部分大佬提供这方面的资源，收费免费的都有，请自行寻找），并有加人权限，那么就可以参照本文教程开始搬山了；</p>
+</li>
+<li><p>如果要更换机器，只需要把【SA 授权文件】（本例中在 <code>/root/AutoRclone/accounts/</code> 路径下）及【gclone 配置文件】（本例中路径为 <code>/root/.config/rclone/rclone.conf</code>）备份，在新机器上安装好 gclone 并在配置文件中修改一下 SA 授权文件的路径就可以直接使用了；</p>
+</li>
+<li><p>生成 SA 过程中如果 AutoRclone 遇到什么奇怪的错误，请善用 <code>python3 gen_sa_accounts.py --help</code>；</p>
+</li>
+<li><p>单个团队盘限制 40 W 文件数，注意不要超限；</p>
+</li>
+<li><p>文件数比较多的话，直接 </p>
+<pre><code>gclone copy
+</code></pre>
+<p> 可能会漏文件或重复复制，这是因为复制过程中切换 SA 和 Google Drive 允许重名文件两个原因导致的，解决办法：</p>
+<ol>
+<li><ol>
+<li>首先对【源盘】执行 <code>rclone dedupe</code> 命令，确保源盘无重复文件，命令用法:</li>
+</ol>
+</li>
+</ol>
+<pre><code>rclone dedupe drive_name:path
+</code></pre>
+<p> 命令可以对云盘文件去重，当文件夹路径相同时会合并，文件 MD5 相同时会删除重复的，仅保留一份，MD5 不同时的默认是交互式操作，询问你保留那个。有大量重复文件时可以使用 </p>
+<pre><code>--dedupe-mode MODE
+</code></pre>
+<p> 参数来指定处理策略，</p>
+<pre><code>MODE
+</code></pre>
+<p> 可以为 </p>
+<pre><code>interactive
+</code></pre>
+<p>（默认），</p>
+<pre><code>skip
+</code></pre>
+<p> ，</p>
+<pre><code>first
+</code></pre>
+<p> ，</p>
+<pre><code>newest
+</code></pre>
+<p> ，</p>
+<pre><code>oldest
+</code></pre>
+<p> ，</p>
+<pre><code>largest
+</code></pre>
+<p> ，</p>
+<pre><code>smallest
+</code></pre>
+<p> ，</p>
+<pre><code>rename
+</code></pre>
+<p>，顾名思义即可。</p>
+<pre><code>sync
+</code></pre>
+</li>
+<li><p>跑完一遍  <code>copy</code> 后使用 <code>rclone size</code> 分别查看【源盘】和【目的盘】的文件数和大小（<code>size</code> 命令使用 gclone 会有点 bug ，所以此处切换回 Rclone），如果【源盘】大于目标盘，说明没复制完全，多跑几次  <code>copy</code> 命令后再比较，直到【目的盘】大于【源盘】，说明有重复文件了，此时使用 <code>dedupe</code> 命令对【目的盘】去重；</p>
+</li>
+<li><p>再次 <code>size</code> 查看文件数，如果【源盘】文件数大于【目的盘】，就重复  <code>copy</code> 命令，如果【源盘】小于【目的盘】，就使用 <code>dedupe</code> 命令去重；</p>
+</li>
+<li><p>重复以上步骤，直到 <code>rclone size</code> 后【源盘】和【目的盘】的文件数和大小严格相等。</p>
+</li>
+</ol>
+<p>这个问题多出现在【源盘】是个人盘的共享文件夹，且包含的文件数较多的时候，因为个人盘的 API 有点 bug ，会导致分享的文件数较多时，通过 API 操作时读取到的文件列表不全，需要等待一段时间才能读取完全，团队盘一般不会出现这个问题。</p>
+<ul>
+<li><ul>
+<li><p>以上方法只适用于【目的盘】是团队盘的情况。【目的盘】是个人盘（比如无限容量的教育邮箱）的情况稍微有点复杂：</p>
+<ol>
+<li>像上文【<a target="_blank" rel="noopener" href="http://wvw.lbdcj.top/1142.html">3.使用 gclone 开始搬山</a>】中的示例一样直接使用会报错，原因是使用了 SA 向个人盘来写入文件，但个人盘只有号主自己有写入权限，无法使用 SA；</li>
+<li>如何向个人盘搬运：可以使用类似 <code>gclone gc:&#123;【源盘】ID&#125; he-sb:&#123;文件夹 ID&#125;/路径/</code> 格式的命令，其中 <code>he-sb</code> 是通过 <code>rclone config</code> 配置好的个人盘配置名称。命令格式和配置文件与原版 Rclone 是一致的（因为 gclone 其实就是魔改的 Rclone，除了【自动切换 SA】和【使用目录 ID 代替路径】以外的功能大家就把它当作 Rclone 来用就好了）。</li>
+</ol>
+<p>通过以上两点，想必大家已经看出来了———当【目的盘】是个人盘的时候是无法突破每日 750 G 限制的，这是 Google Drive 权限的限制，目前还没见到有人能解决。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>11.手动解决 AutoRclone 配置时发生的错误</p>
+<p><img src="http://files.lbdcj.top/wvw/AutoRclone/1.jpg" alt="img"></p>
+<p>正常情况 ‘–quick-setup’ 标签会自动完成 创建+启动项目 并 创建+下载SA全过程<br>如果碰到以上图示错误怎么处理<br>经过多次’胡乱测试’，基本上与以下几点原因有关<br>(1)因为与googleapis的通信原因造成的错误<br>(2)Project中有曾经删除但未到期1个月未完全删除的项目存在会被AutoRclone读取<br>由于个人情况不同，可能因为网络，也可能是其他原因无法得知大家的错误具体在哪一步<br>下面给出统一解决方案<br>为了防止接下来手动创建步骤的SA与本地不完整的文件重复<br>删除本地所有SA文件</p>
+<pre><code>rm -i ~/AutoRclone/accounts/*
+</code></pre>
+<p>接下来开始手动步骤，确认项目是否已创建</p>
+<pre><code>python3 gen_sa_accounts.py --list-projects
+</code></pre>
+<p>或手动前往 cloud-resource-manager 查看项目是否成功创建<br>情况分两种<br>(1)未成功创建，需手动创建，回到 SSH 窗口输入以下命令</p>
+<pre><code>python3 gen_sa_accounts.py --create-projects $NUM
+</code></pre>
+<p>$NUM 解释请翻阅上文<br>执行作者提供的重置所有项目命令</p>
+<pre><code>python3 gen_sa_accounts.py --quick-setup -1
+</code></pre>
+<p>如果还是看到以下图示错误，请手动执行(2)步骤</p>
+<p><img src="http://files.lbdcj.top/wvw/AutoRclone/2.jpg" alt="img"><br>(2)项目成功创建，但项目未正常启用服务 + 创建并下载 SA 文件<br>输入以下命令，并记录所有的 saf 开头的项目名</p>
+<pre><code>python3 gen_sa_accounts.py --list-projects | grep &#39;saf&#39;
+</code></pre>
+<p>对项目开启对应服务</p>
+<pre><code>python3 gen_sa_accounts.py --enable-services saf-xxxxxxxx
+#你有几个 saf 项目就对应输入几次 saf-xxxxx 替换为上一步你记录的项目名
+</code></pre>
+<p>重置项目中所有的 SA</p>
+<pre><code>python3 gen_sa_accounts.py --quick-setup -1
+#此时再遇到上文(1)中错误或任何其他错误可以不予理会
+</code></pre>
+<p>下载 SA 文件至 accounts 目录</p>
+<pre><code>python3 gen_sa_accounts.py --path accounts --download-keys saf-xxxxxx
+#你有几个 saf 项目就对应输入几次 saf-xxxxx 替换为上一步你记录的项目名
+</code></pre>
 
                 
             </div>
@@ -536,7 +702,7 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xn--uf4a.xn--5tzm5g/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/">http://www.xn--uf4a.xn--5tzm5g/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/</a>
+                    <a href="http://www.xn--uf4a.xn--5tzm5g/2021/10/26/google-ban-shan-zhi-zhu/">http://www.xn--uf4a.xn--5tzm5g/2021/10/26/google-ban-shan-zhi-zhu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -574,12 +740,12 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vSphere/">
-                                    <span class="chip bg-color">vSphere</span>
+                                <a href="/tags/Google/">
+                                    <span class="chip bg-color">Google</span>
                                 </a>
                             
-                                <a href="/tags/vGPU/">
-                                    <span class="chip bg-color">vGPU</span>
+                                <a href="/tags/Google-Drive/">
+                                    <span class="chip bg-color">Google Drive</span>
                                 </a>
                             
                         </div>
@@ -629,6 +795,59 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2021/10/26/gcp-kai-qi-ssh-mi-ma-deng-lu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="GCP开启ssh密码登陆">
+                        
+                        <span class="card-title">GCP开启ssh密码登陆</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/GCP/" class="post-category">
+                                    GCP
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/GCP/">
+                        <span class="chip bg-color">GCP</span>
+                    </a>
+                    
+                    <a href="/tags/ssh/">
+                        <span class="chip bg-color">ssh</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2021/10/26/rclone-shang-chuan-can-shu/">
                     <div class="card-image">
                         
@@ -645,9 +864,9 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -665,59 +884,6 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                     
                     <a href="/tags/Rclone/">
                         <span class="chip bg-color">Rclone</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/10/09/quan-wang-zui-quan-esxi6-7-ge-ge-ban-ben-xia-zai-bao-han-fa-bu-shi-jian-ban-ben-hao-md5sha1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1">
-                        
-                        <span class="card-title">全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="post-category">
-                                    虚拟机
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/vSphere/">
-                        <span class="chip bg-color">vSphere</span>
-                    </a>
-                    
-                    <a href="/tags/ESXI/">
-                        <span class="chip bg-color">ESXI</span>
                     </a>
                     
                 </div>

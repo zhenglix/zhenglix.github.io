@@ -7,7 +7,7 @@ charset="utf-8"></script>
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置, 支援鑫">
+    <meta name="keywords" content="电影0day命名方式的奥秘, 支援鑫">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@ charset="utf-8"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置 | 支援鑫</title>
+    <title>电影0day命名方式的奥秘 | 支援鑫</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -291,12 +291,12 @@ charset="utf-8"></script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置</h1>
+                    <h1 class="description center-align post-title">电影0day命名方式的奥秘</h1>
                 </div>
             </div>
         </div>
@@ -410,29 +410,12 @@ charset="utf-8"></script>
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/vSphere/">
-                                <span class="chip bg-color">vSphere</span>
-                            </a>
-                        
-                            <a href="/tags/vGPU/">
-                                <span class="chip bg-color">vGPU</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="post-category">
-                                虚拟机
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -441,7 +424,7 @@ charset="utf-8"></script>
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-09
+                    2021-10-26
                 </div>
                 
 
@@ -450,14 +433,14 @@ charset="utf-8"></script>
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    781
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    13 分
                 </div>
                 
 
@@ -477,39 +460,84 @@ charset="utf-8"></script>
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在vSphere平台下安装vGPU驱动之前需要打开ESXi的SSH服务，方便来传输vib驱动安装包以及后面一些命令行的操作。</p>
-<p>ESXi需要加入vCenter，vGPU相关的一些配置都需要在vCenter下来修改。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png" alt="img"></a></p>
-<p>使用WinSCP把驱动vib传到ESXi的/tmp目录下</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png" alt="img"></a></p>
-<p>安装驱动之前先检查一下GPU是否被正常识别到，SSH到ESXi，使用命令：<strong>lspci | grep NVIDIA</strong> 来检查。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png" alt="img"></a></p>
-<p>到/tmp目录下，赋予vib驱动包可执行权限，然后使用esxcli命令进行安装，注意ESXi主机需要处于维护模式，可以在web client上修改，也可以在安装时加上–maintenance-mode参数。</p>
-<pre class=" language-cmd"><code class="language-cmd">cd /tmp
-chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mode
-</code></pre>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/149448893.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/149448893.png" alt="img"></a></p>
-<p>等待几分钟，安装成功以后会有提示信息，可能在安装信息中提示不需要重启，但是强烈建议重启一下主机来验证驱动是否正常，有碰到过重启以后驱动报错的情况。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png" alt="img"></a></p>
-<p>重启完主机以后使用 <strong>nvidia-smi</strong> 命令来验证驱动是否正常，正常情况下能看到类似如下信息：</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png" alt="img"></a></p>
-<p>特别注意2点：1、ECC模式是否显示off  2、默认情况下vSphere会使用vsga模式，而不是vGPU模式，所以能看到最下面xorg条目，这个我们后面改。</p>
-<p>在部分时候，特别是使用全新的GPU，可能会看到nvidia-smi信息里面ECC区域不是off状态，而是0，这说明你现在的ECC是启用的状态，并不是所有vgpu都可以使用ECC，如果你不能确认你的环境是否需要启用ECC，那建议先关闭ECC。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png" alt="img"></a></p>
-<p>使用命令来关闭ECC，注意，启用或者关闭ECC都需要重启主机。</p>
-<p><strong>nvidia-smi -e 0</strong></p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png" alt="img"></a></p>
-<p>更多关于ECC的信息，请参考：</p>
-<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory">https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory</a></p>
-<p>在确认驱动状态没问题以后，我们登陆vCenter，定位到<strong>主机-配置-图形</strong>，编辑<strong>主机图形设置</strong>，可以看到默认是共享模式，也就是vsga，我们需要切换到<strong>“直接共享“</strong>才能使用vGPU。</p>
-<p>2种GPU分配策略，在有多个GPU的时候生效。</p>
-<p>默认最佳性能模式，会在所有可能的GPU上去运行虚拟机，即VM1运行在GPU1、VM2运行在GPU2，以此类推，尽可能平均的分布虚拟机，不会让GPU闲着。</p>
-<p>GPU整合模式，会在一个GPU核心上运行先启动的虚拟机，直到当前GPU没有资源才会去使用下一个GPU核心，这个模式多用在同一台服务器上运行多个vGPU profile的情况下。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/696802411.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/696802411.png" alt="img"></a></p>
-<p>除了主机的图形选项，针对每个GPU也都可以单独设置共享模式，第一次使用需要在这里再切换一下，主要是需要重启xorg服务来改变配置，不同vSphere版本界面可能不能，部分vSphere 6.5早期版本需要手动重启xorg服务。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/682515054.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/682515054.png" alt="img"></a></p>
-<p>更改成功以后就没有xorg条目了，可以开始使用vGPU了！</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/51672901.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/51672901.png" alt="img"></a></p>
+                <p>如果你是一位追求高清的电影的绅士或是经常混迹 <code>PT</code> 站的，那么一定喜欢现<code>4K</code> 蓝光电影的超高画质。在 <code>4K UHD</code> 蓝光格式被宣告破解后，网上已涌现了大量的 4K 原盘电影资源可下载了，那么既然有那么多资源供我们下载，应该如何在眼花缭乱的资源中找到自己合适的电影呢？下面 我就带大家逐一解读它们。</p>
+<hr>
+<p>​        <strong>一般来说，正规压制组压制的电影，都会采用 <code>0day</code> 的命名方式，如：英文名称、版本、年份、片源、分辨率、视频编码、音频格式、压制组。 例如文件名：Midway.DC.2019.1080p.AMZN.WEB-DL.DDP5.1.H.264-NTG</strong></p>
+<p>解读：</p>
+<ul>
+<li><strong>英文名称：</strong>Midway</li>
+<li><strong>版本说明：</strong>DC（导演剪辑版）</li>
+<li><strong>发行年份：</strong>2019</li>
+<li><strong>片源：</strong>AMZN</li>
+<li><strong>分辨率：</strong>1080P</li>
+<li><strong>视频编码：</strong>x264（H264）</li>
+<li><strong>音频格式：</strong>DTS-HD MA5.1</li>
+<li><strong>压制小组：</strong>NTG</li>
+</ul>
+<p><strong>注意：当然了</strong>一些发布社区或压制小组和字幕组也有自己独立的一套命名规则，连续剧跟电影也有一些差别。如第一季用 “S01” ，第一集用 “E01” 表示等。</p>
+<hr>
+<h2 id="关于版本"><a href="#关于版本" class="headerlink" title="关于版本"></a>关于版本</h2><ul>
+<li><strong>PROPER：</strong><code>完美版</code>，先前发行的电影质量较差，而这个认为是较好的。</li>
+<li><strong>REPACK：</strong><code>重新制作</code>发布，之前的版本就要回收。</li>
+<li><strong>LIMITED：</strong>指在美国有限上映的片子，在少于 <code>500</code> 家电影院放映。</li>
+<li><strong>DUPE：</strong>与别的组织 <code>Release</code> 有重复。</li>
+<li><strong>IMAX：</strong>巨幕版，标准的 <code>IMAX</code> 银幕为 22 米宽、16 米高。</li>
+<li><strong>UNRATE：</strong>未分级版</li>
+<li><strong>R-RATE：</strong>有删节版</li>
+<li><strong>SE：</strong><code>DVD</code> 特别版</li>
+<li><strong>DC：</strong>导演剪辑版</li>
+<li><strong>WITH EXTRAS：</strong>带花絮</li>
+<li><strong>RERIP：</strong>同样电影重新 RIP</li>
+<li><strong>SUBBED：</strong>有硬字幕（<code>非内嵌</code>）</li>
+<li>**生肉:**指无字幕电影</li>
+<li>**熟肉:**指翻译好自带字幕的影片</li>
+</ul>
+<hr>
+<h2 id="片源"><a href="#片源" class="headerlink" title="片源"></a>片源</h2><h3 id="1、CAM（枪版）"><a href="#1、CAM（枪版）" class="headerlink" title="1、CAM（枪版）"></a>1、CAM（枪版）</h3><p><strong>CAM 通常是用数码摄像机从电影院盗录。</strong>有时会使用小三角架，但大多数时候不可能使用，所以摄像机会抖动。因此我们看到画面通常偏暗人物常常会失真，下方的字幕时常会出现倾斜。 由于声音是从摄像机自带的话筒录制，所以经常会录到观众的笑声等声音。因为这些因素，图象和声音质量通常都很差。</p>
+<h3 id="2、TS（准枪版）"><a href="#2、TS（准枪版）" class="headerlink" title="2、TS（准枪版）"></a>2、TS（准枪版）</h3><p>TS 是 Tele Sync 的缩写。TS 与 CAM 版的标准是相同的。但<strong>它使用的是外置音源</strong>（一般是影院座椅上为听力不好的人设的耳机孔）这个音源不能保证是好的音源，因为受到很多背景噪音的干扰。TS 是在空的影院或是用专业摄像机在投影室录制，所以图象质量可能比 CAM 好。但画面的起伏很大。论坛上常出现的有一般 TS 版和经过修复清晰 TS 版。</p>
+<h3 id="3、TC（胶片版）"><a href="#3、TC（胶片版）" class="headerlink" title="3、TC（胶片版）"></a>3、TC（胶片版）</h3><p>TC 是 Tele Cine 的缩写。TC 使用<strong>电视电影机从胶片直接数字拷贝。</strong>画面质量还不错,但亮度不足，有些昏暗。很多时候制作 TC 使用的音源来自 TS ，因此音质很差，但画面质量远好过 TS 。如果不是太讲究的话 TC 版还是不错的选择。</p>
+<h3 id="4、DVDSCR（预售版）"><a href="#4、DVDSCR（预售版）" class="headerlink" title="4、DVDSCR（预售版）"></a>4、DVDSCR（预售版）</h3><p>SCR 是 Screener 的缩写。<strong>DVDSCR 预览版或者测试版的 DVD，非正式出版的版本。</strong>从预览版 DVD 中获取，通过 Mpeg-4 技术进行高质量压缩的视频格式。能比 DVDRip 早发布，但画质稍差。（经常有一些不在黑边里在屏幕下方滚动的消息，包含版权和反盗版电话号码 ，会影响观看。）如果没有严格的划分它的画质应与 TC 版差不多。</p>
+<h3 id="5、R5、R6-版"><a href="#5、R5、R6-版" class="headerlink" title="5、R5、R6 版"></a>5、R5、R6 版</h3><p>R5、R6 就是 DVD 区域码，<strong>R5 是俄罗斯 5 区版的DVD，</strong>因为配音为俄语，所以需要去寻找英语音轨，R5 版本就是一种合成版本（俄 5 区 DVD 视频＋通过其它渠道获得的英语音轨），R5 版本的画质一般都不错，音频部分由于音轨的来源不同，效果有好有差。有的 R5 影片是带有原声英语的，为了表示区别，一般把带有原声的影片标为 [R5]，把合成音频的标为 [R5.LINE]。<br><strong>关于DVD区域码，现在世界被划分为六个区域，详细如下：</strong></p>
+<ul>
+<li><strong>1区：</strong>美国、加拿大（也就是下面的 DVDRip）</li>
+<li><strong>2区：</strong>西欧、日本、南非</li>
+<li><strong>3区：</strong>东南亚、中国香港、中国澳门、中国台湾</li>
+<li><strong>4区：</strong>澳大利亚、西班牙语拉丁美洲</li>
+<li><strong>5区：</strong>俄罗斯、东欧、非洲</li>
+<li><strong>6区：</strong>中国大陆</li>
+</ul>
+<h3 id="6、DVDRIP（正式-DVD-版）"><a href="#6、DVDRIP（正式-DVD-版）" class="headerlink" title="6、DVDRIP（正式 DVD 版）"></a>6、DVDRIP（正式 DVD 版）</h3><p><strong>DVDRip 是从最终版的 DVD 转制，质量应该是较好的。</strong>将 DVD 的视频、音频、字幕剥离出来，再经过压缩或者其他处理，然后重新合成成多媒体文件。一般来说，DVDrip 由影音文件(后缀为 avi)和字幕文件组成。</p>
+<h3 id="7、HDTVHDTV"><a href="#7、HDTVHDTV" class="headerlink" title="7、HDTVHDTV"></a>7、HDTVHDTV</h3><p>是 High Definition Television 的简称，翻译成中文是<strong>“高清晰度电视”</strong>的意思，画质次于BD，对于那些未发行蓝光的电影(比如很多老电影)，有 HDTV 版是很好的收藏选择，不过很多 HDTV源 都有台标，这也让很多收藏者很纠结。</p>
+<h3 id="8、Remux、BluRay（蓝光原盘未压缩）"><a href="#8、Remux、BluRay（蓝光原盘未压缩）" class="headerlink" title="8、Remux、BluRay（蓝光原盘未压缩）"></a>8、Remux、BluRay（蓝光原盘未压缩）</h3><p><strong>蓝光原盘未压缩，清晰度最高，</strong>一部电影容量大概在 30GB ～ 50GB，一般两种写法都有，不过后一种 BluRay 如果跟着 X.264 或者 H.264 就不是蓝光原盘的清晰度了。</p>
+<h3 id="9、BluRay-BDrip-BD（蓝光原盘）"><a href="#9、BluRay-BDrip-BD（蓝光原盘）" class="headerlink" title="9、BluRay / BDrip / BD（蓝光原盘）"></a>9、BluRay / BDrip / BD（蓝光原盘）</h3><p>BD 是 Blue Disk 的简称，翻译成中文是<strong>“蓝光影碟”</strong>的意思。采用不同压缩算法转录的蓝光电影文件，清晰度次之，但是兼顾了容量和清晰度两个角度的需求，一般这种电影容量大概是在 10GB ～ 20GB 之间，电影收藏必备版本。通常文件名中注明 “Bluray”的都是片源是 BD。不过有些注明是 “BRRip”，这说明该资源是二次重编码得到的，就是利用 BDrip 得到的 720P、1080P 资源转制的，而不是直接用蓝光原盘压制的。</p>
+<h3 id="10、HR-HDTV（半高清）"><a href="#10、HR-HDTV（半高清）" class="headerlink" title="10、HR-HDTV（半高清）"></a>10、HR-HDTV（半高清）</h3><p><strong>简单说就是采集自电视节目的转录，比如高清电视台的录播内容，最直观的表现是带有台标，</strong>比如美剧、高清综艺等等很容易见到 HDTV 格式的片源；而 HDRip 就是将 HDTV 的视频内容进一步压缩，视频编码多采用 H.264、音频部分用 ACC 来处理清晰度要比 WebRip 再差一点。人人影视经常制作HR-HDTV的资源，不过这类资源无法明确片源，而且字幕是硬字幕，不利于收藏。它的优势就是体积小。</p>
+<h3 id="11、WebRip、WEB-DL"><a href="#11、WebRip、WEB-DL" class="headerlink" title="11、WebRip、WEB-DL"></a>11、WebRip、WEB-DL</h3><p><strong>这种格式其实是为了 iTunes 而出现的（iTunes在线商店），</strong>清晰度还不错，但是体积要小很多，大多数采用 H.264 格式压缩。基本上，同一个片源，WebRip 可能只需要 5GB，而 BDRip 可能要到 8GB ～ 10GB 的样子（当然画质也有差别），相比 HDTV，无水印，无台标 LOGO，无插播广告，所以无任何剪切较完整。(国内也有不少 WEB-DL 的资源，这些视频源来自于迅雷数字商城、优酷电影等网站。</p>
+<hr>
+<h2 id="关于分辨率"><a href="#关于分辨率" class="headerlink" title="关于分辨率"></a>关于分辨率</h2><p><code>720P</code>、<code>1080P</code>、<code>4K</code>、<code>5K</code> 和 <code>MP</code> 等经常是用来表示视频的分辨率，但是如此多的称呼难免会让人混淆和困惑，现在小沃这带大家一起了解下其具体含义：<br>“P”<br><strong>720P、1080P 表示的是“视频像素的总行数”，</strong>例如：720P 表示的是视频有 720 行像素，1080P 则表示视频总共有 1080 行的像素数。1080P 分辨率的摄像机像素数是 1920 X 1080。“P”（Progressive 的缩写）本身表示的是“逐行扫描”。如今，摄像机基本都是逐行扫描模式，相对于隔行扫描（Interlaced），“P”的意义已经不大了。</p>
+<p>“K”<br><strong>2K、4K 等是表示“视频像素的总列数”；</strong>例如 4K, 表示的是视频有 4000 列的像素数，具体是 3840 列或 4096 列。4K 分辨率的摄像机像素数有两种，第一种是：4096 X 2160；第二种是：3840 X 2160。</p>
+<p>“MP”<br><strong>MP 代表的是像素总数，</strong>指像素的行数（P）与列数(K)相乘后的一个结果（百万像素），在高清网络摄像机中，我们通常叫成百万或者两百万像素的摄像机：</p>
+<ul>
+<li><strong>1080P</strong> 分辨率为 <code>1920 X 1080</code> 像素，实际像素为 2073600，通常都会将 1080p 或 1080i 叫 200 万像素分辨率</li>
+<li><strong>960P</strong> 分辨率为 <code>1280 X 960</code> 像素，实际像素为 228800，通常都会将 960p 或 960i 叫 130 万像素分辨率</li>
+<li><strong>720P</strong> 分辨率为 <code>1280 X 720</code> 像素，实际像素为 921600，通常都会将 720p 或 720i 叫 100 万像素分辨率</li>
+</ul>
+<hr>
+<h2 id="关于视频编码"><a href="#关于视频编码" class="headerlink" title="关于视频编码"></a>关于视频编码</h2><h3 id="H-264"><a href="#H-264" class="headerlink" title="H.264"></a>H.264</h3><p><strong>H.264 隶属于 MPEG-4 编码，也是当前最流行的一种编码方式，H264 的优点是在目前影视文件中容量最小的 RAW，</strong>缺点是编码时需要大量运算时间，H264 支持硬件加速，H264 支持自变速满帧技术(15fps ～ 6000fps)，H264 编码的文件最大特征是后缀名为 .h264。比如小编前面说到了 BluRay 后面如果跟着 H.264 就是使用这种编码处理过的，清晰度基本一致，但是容量大幅减少（相对蓝光原盘）。</p>
+<h3 id="X264"><a href="#X264" class="headerlink" title="X264"></a>X264</h3><p><strong>严格意义上说 X264 不是独立于 H.264 的编码技术，X264 是 H264 的另外一种开源编码格式，</strong>其开头的 “X” 意思是 “Software”，是使用 CPU 软解码的一种视频格式，所以，X264 不支持硬件加速，纯粹靠 CPU 来解压播放——当然好处显而易见，兼容性极佳。尤其是现在 CPU 的运算能力都足够好，所以在播放视频的时候也看不出太大区别（CPU 占用率会比 H.264 编码的高）。</p>
+<h3 id="AVC1"><a href="#AVC1" class="headerlink" title="AVC1"></a>AVC1</h3><p><strong>AVC1 其实也是 H.264 编码的一种，这不过是苹果特立独行的产物罢了，</strong>苹果开发的符合 H.264 / AVC 标准的编码就被叫做 AVC1。注意很多 WEB-DL 的电影文件名里都有 AVC 字样。</p>
+<h3 id="H-265"><a href="#H-265" class="headerlink" title="H.265"></a>H.265</h3><p><strong>H.265 是未来之王，它很快就会取代 H.264 成为新一代的视频编码全面普及。</strong>简单说，它的压缩算法更加高效，H.265 在有限带宽下传输更高质量的网络视频，仅需原先的一半带宽即可播放相同质量的视频。举个例子，同样一个 1080P 高清电影，用 H.264 压缩后，容量可能是 10GB；而采用 H.265 编码压缩，视频效果一致的情况下，容量只有 5GB，不过，H.265 现在还没普及是因为支持这个编码硬解的方案还不够普及，电脑上六代酷睿以后的处理器才支持 H.265 编码；手机上需要晓龙 808 / helio X10 以后的处理器才能支持（同代中端也可以）；电视盒要 HI3796M / AmlogicS905 / RK3368 等等以上才可以支持。显然，这距离普及还有一点距离。</p>
+<hr>
+<h2 id="关于音频格式"><a href="#关于音频格式" class="headerlink" title="关于音频格式"></a>关于音频格式</h2><h3 id="DTS-DTS-HD-MA"><a href="#DTS-DTS-HD-MA" class="headerlink" title="DTS / DTS-HD MA"></a>DTS / DTS-HD MA</h3><p><strong>DTS 属于 DVD 时代的音频标杆，</strong>有损音频压缩格式，分为 1.5Mbps 的全码 DTS 和半码 DTS；<br><strong>DTS-HD MA 属于蓝光音频标准之一，</strong>为音频无损压缩格式，码率在 3 ~ 4Mbps 不等，在 PC 上兼容性不是很好，如果不能识别 MA，那么只能解码 DTS core 部分，可以用 TSMUXER / eac3to 等工具提取 DTS core 核心。<br>DTS 是一种效率低下的编码格式（CBR），除非是兼容性考虑，不建议你收藏电影时使用 DTS 音轨。</p>
+<h3 id="AC3-TrueHD"><a href="#AC3-TrueHD" class="headerlink" title="AC3 / TrueHD"></a>AC3 / TrueHD</h3><p>AC3 为有损编码格式（CBR），常见于 DVD / BD，码率最高为 640k，5.1 声道通常有 640、448、384 这几种码率。<br><strong>TrueHD 属于蓝光音频标准之一，</strong>音频无损压缩格式，一般都可以从 TrueHD 中提取 AC3 核心。</p>
+<h3 id="AAC-HE-AAC"><a href="#AAC-HE-AAC" class="headerlink" title="AAC / HE-AAC"></a>AAC / HE-AAC</h3><p><strong>AAC 是最高效的音频有损编码格式，</strong>如使用 NeroAAC 编码器，建议使用 <code>-q</code> 模式控制码率。<br>HE-AAC 是在 AAC 的基础上增加了 SBR（频段复制）和 PS（参量立体声）技术，通常用于语音通话、数据存档这些应用上，不建议用在电影或音乐上。</p>
+<h3 id="MP3"><a href="#MP3" class="headerlink" title="MP3"></a>MP3</h3><p><strong>应用于早期的 DVDRip</strong>，不支持 5.1 声道，如今几乎没有在使用了。</p>
+<h3 id="PCM-LPCM-FLAC"><a href="#PCM-LPCM-FLAC" class="headerlink" title="PCM / LPCM / FLAC"></a>PCM / LPCM / FLAC</h3><p>PCM / LPCM常见于 BD，是一种<strong>无损格式</strong>，不做压缩，类似 <code>WAV</code>。<br>FLAC 是<strong>最好用的音频无损压缩格式</strong>，编码器开源，在 PC 上兼容性好，压缩率优于 DTS-HD MA 和 TrueHD。</p>
+<hr>
+<h2 id="关于字幕"><a href="#关于字幕" class="headerlink" title="关于字幕"></a>关于字幕</h2><h3 id="ASS-SSA"><a href="#ASS-SSA" class="headerlink" title="ASS/SSA"></a>ASS/SSA</h3><p>SSA 全称 SubStation Alpha, 是由 CS Low（又称 <code>Kotus</code>）创建的一种字幕格式, 用以实现比传统字幕诸如 SRT 等格式更为复杂的功能。<br>SSA 字幕也是文本文件，可以使用 Windows 的记事本直接打开和编辑。与 SRT 相比 SSA 字幕文件功能比较多，<strong>可以定义字体格式、字体颜色、字体大小等。</strong></p>
+<h3 id="SRT"><a href="#SRT" class="headerlink" title="SRT"></a>SRT</h3><p>SRT 字幕是文本文件，也可以使用 Windows 的记事本直接打开和编辑。<strong>SRT 字幕是目前最为流行字幕格式，因为其制作规范简单，一句时间代码加一句字幕，使得制作修改就相当容易。</strong></p>
+<h3 id="IDX-SUB"><a href="#IDX-SUB" class="headerlink" title="IDX+SUB"></a>IDX+SUB</h3><p><strong>SUB 是一种图形格式字幕，</strong>DVD 光盘里面使用的就是这种字幕文件。一般由 <code>IDX</code> 和 <code>SUB</code> 文件组成，有时也能看到 <code>IFO</code> 文件，不过这个现在已经不怎么用的上了。IDX 相当于索引文件，里面包括了字幕出现的时间码和字幕显示属性等。SUB 文件就是存放字幕本身了，注意是图片格式的，所以比较大，动辄 10M 以上了。IDX+SUB 可以存放很多语言的字幕，提供了在播放的时候的选择。</p>
+<hr>
+<p>这么多名词看的有点头疼？没关系，收藏本页面要用的时候对照着看，其实我自己也记不住才会写这篇文章方便自己后期查阅，另外本人对这方面了解也并不是非常深，如有说错的可以QQ给我留言，最后想流畅播放高码率的 4K 原盘，最好选择支持<strong>4K 视频硬解码</strong>的显卡。目前第七代 <code>Intel (i7)</code> 开始 CPU 的核显以可支持全硬解；NVIDIA 的 10xx 系列以及 AMD RX400 以上的独立显卡也都实现了原生的 4K 视频全硬解以及 HDR 技术支持。如果钱包不允许你这样也不要紧软解码也还是能解决部分的问题。</p>
 
                 
             </div>
@@ -536,7 +564,7 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xn--uf4a.xn--5tzm5g/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/">http://www.xn--uf4a.xn--5tzm5g/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/</a>
+                    <a href="http://www.xn--uf4a.xn--5tzm5g/2021/10/26/dian-ying-0day-ming-ming-fang-shi-de-ao-mi/">http://www.xn--uf4a.xn--5tzm5g/2021/10/26/dian-ying-0day-ming-ming-fang-shi-de-ao-mi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -573,15 +601,7 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/vSphere/">
-                                    <span class="chip bg-color">vSphere</span>
-                                </a>
-                            
-                                <a href="/tags/vGPU/">
-                                    <span class="chip bg-color">vGPU</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -625,66 +645,18 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/10/26/rclone-shang-chuan-can-shu/">
+                <a href="/2021/10/26/dian-ying-0day-ming-ming-fang-shi-de-ao-mi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Rclone上传参数">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="电影0day命名方式的奥秘">
                         
-                        <span class="card-title">Rclone上传参数</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Rclone/" class="post-category">
-                                    Rclone
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Rclone/">
-                        <span class="chip bg-color">Rclone</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/10/09/quan-wang-zui-quan-esxi6-7-ge-ge-ban-ben-xia-zai-bao-han-fa-bu-shi-jian-ban-ben-hao-md5sha1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1">
-                        
-                        <span class="card-title">全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1</span>
+                        <span class="card-title">电影0day命名方式的奥秘</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -695,14 +667,52 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            zyz
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/10/26/gcp-kai-qi-ssh-mi-ma-deng-lu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="GCP开启ssh密码登陆">
+                        
+                        <span class="card-title">GCP开启ssh密码登陆</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="post-category">
-                                    虚拟机
+                            <a href="/categories/GCP/" class="post-category">
+                                    GCP
                                 </a>
                             
                             
@@ -712,12 +722,12 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vSphere/">
-                        <span class="chip bg-color">vSphere</span>
+                    <a href="/tags/GCP/">
+                        <span class="chip bg-color">GCP</span>
                     </a>
                     
-                    <a href="/tags/ESXI/">
-                        <span class="chip bg-color">ESXI</span>
+                    <a href="/tags/ssh/">
+                        <span class="chip bg-color">ssh</span>
                     </a>
                     
                 </div>

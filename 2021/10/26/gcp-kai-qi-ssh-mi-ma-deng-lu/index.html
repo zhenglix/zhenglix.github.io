@@ -7,7 +7,7 @@ charset="utf-8"></script>
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置, 支援鑫">
+    <meta name="keywords" content="GCP开启ssh密码登陆, 支援鑫">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@ charset="utf-8"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置 | 支援鑫</title>
+    <title>GCP开启ssh密码登陆 | 支援鑫</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -291,12 +291,12 @@ charset="utf-8"></script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置</h1>
+                    <h1 class="description center-align post-title">GCP开启ssh密码登陆</h1>
                 </div>
             </div>
         </div>
@@ -412,12 +412,12 @@ charset="utf-8"></script>
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vSphere/">
-                                <span class="chip bg-color">vSphere</span>
+                            <a href="/tags/GCP/">
+                                <span class="chip bg-color">GCP</span>
                             </a>
                         
-                            <a href="/tags/vGPU/">
-                                <span class="chip bg-color">vGPU</span>
+                            <a href="/tags/ssh/">
+                                <span class="chip bg-color">ssh</span>
                             </a>
                         
                     </div>
@@ -428,8 +428,8 @@ charset="utf-8"></script>
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="post-category">
-                                虚拟机
+                            <a href="/categories/GCP/" class="post-category">
+                                GCP
                             </a>
                         
                     </div>
@@ -441,7 +441,7 @@ charset="utf-8"></script>
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-09
+                    2021-10-26
                 </div>
                 
 
@@ -450,14 +450,14 @@ charset="utf-8"></script>
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    781
+                    118
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -477,39 +477,17 @@ charset="utf-8"></script>
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在vSphere平台下安装vGPU驱动之前需要打开ESXi的SSH服务，方便来传输vib驱动安装包以及后面一些命令行的操作。</p>
-<p>ESXi需要加入vCenter，vGPU相关的一些配置都需要在vCenter下来修改。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png" alt="img"></a></p>
-<p>使用WinSCP把驱动vib传到ESXi的/tmp目录下</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png" alt="img"></a></p>
-<p>安装驱动之前先检查一下GPU是否被正常识别到，SSH到ESXi，使用命令：<strong>lspci | grep NVIDIA</strong> 来检查。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png" alt="img"></a></p>
-<p>到/tmp目录下，赋予vib驱动包可执行权限，然后使用esxcli命令进行安装，注意ESXi主机需要处于维护模式，可以在web client上修改，也可以在安装时加上–maintenance-mode参数。</p>
-<pre class=" language-cmd"><code class="language-cmd">cd /tmp
-chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mode
+                <h1 id="一、开启密码登陆"><a href="#一、开启密码登陆" class="headerlink" title="一、开启密码登陆"></a>一、开启密码登陆</h1><h2 id="1、修改ssh配置文件"><a href="#1、修改ssh配置文件" class="headerlink" title="1、修改ssh配置文件"></a>1、修改ssh配置文件</h2><pre><code>nano /etc/ssh/sshd_config
 </code></pre>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/149448893.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/149448893.png" alt="img"></a></p>
-<p>等待几分钟，安装成功以后会有提示信息，可能在安装信息中提示不需要重启，但是强烈建议重启一下主机来验证驱动是否正常，有碰到过重启以后驱动报错的情况。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png" alt="img"></a></p>
-<p>重启完主机以后使用 <strong>nvidia-smi</strong> 命令来验证驱动是否正常，正常情况下能看到类似如下信息：</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png" alt="img"></a></p>
-<p>特别注意2点：1、ECC模式是否显示off  2、默认情况下vSphere会使用vsga模式，而不是vGPU模式，所以能看到最下面xorg条目，这个我们后面改。</p>
-<p>在部分时候，特别是使用全新的GPU，可能会看到nvidia-smi信息里面ECC区域不是off状态，而是0，这说明你现在的ECC是启用的状态，并不是所有vgpu都可以使用ECC，如果你不能确认你的环境是否需要启用ECC，那建议先关闭ECC。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png" alt="img"></a></p>
-<p>使用命令来关闭ECC，注意，启用或者关闭ECC都需要重启主机。</p>
-<p><strong>nvidia-smi -e 0</strong></p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png" alt="img"></a></p>
-<p>更多关于ECC的信息，请参考：</p>
-<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory">https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory</a></p>
-<p>在确认驱动状态没问题以后，我们登陆vCenter，定位到<strong>主机-配置-图形</strong>，编辑<strong>主机图形设置</strong>，可以看到默认是共享模式，也就是vsga，我们需要切换到<strong>“直接共享“</strong>才能使用vGPU。</p>
-<p>2种GPU分配策略，在有多个GPU的时候生效。</p>
-<p>默认最佳性能模式，会在所有可能的GPU上去运行虚拟机，即VM1运行在GPU1、VM2运行在GPU2，以此类推，尽可能平均的分布虚拟机，不会让GPU闲着。</p>
-<p>GPU整合模式，会在一个GPU核心上运行先启动的虚拟机，直到当前GPU没有资源才会去使用下一个GPU核心，这个模式多用在同一台服务器上运行多个vGPU profile的情况下。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/696802411.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/696802411.png" alt="img"></a></p>
-<p>除了主机的图形选项，针对每个GPU也都可以单独设置共享模式，第一次使用需要在这里再切换一下，主要是需要重启xorg服务来改变配置，不同vSphere版本界面可能不能，部分vSphere 6.5早期版本需要手动重启xorg服务。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/682515054.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/682515054.png" alt="img"></a></p>
-<p>更改成功以后就没有xorg条目了，可以开始使用vGPU了！</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/51672901.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/51672901.png" alt="img"></a></p>
+<h2 id="2、修改下面两个参数，把no改为yes"><a href="#2、修改下面两个参数，把no改为yes" class="headerlink" title="2、修改下面两个参数，把no改为yes"></a>2、修改下面两个参数，把no改为yes</h2><pre><code>PermitRootLogin no
+
+PasswordAuthentication no
+</code></pre>
+<h2 id="3、更改完毕使用Ctrl-O-保存后使用Ctrl-X-退出。"><a href="#3、更改完毕使用Ctrl-O-保存后使用Ctrl-X-退出。" class="headerlink" title="3、更改完毕使用Ctrl + O 保存后使用Ctrl + X 退出。"></a>3、更改完毕使用Ctrl + O 保存后使用Ctrl + X 退出。</h2><h2 id="4、重启ssh服务"><a href="#4、重启ssh服务" class="headerlink" title="4、重启ssh服务"></a>4、重启ssh服务</h2><pre><code>service sshd restart
+</code></pre>
+<h2 id="5、为root帐户设置密码"><a href="#5、为root帐户设置密码" class="headerlink" title="5、为root帐户设置密码"></a>5、为root帐户设置密码</h2><pre><code>passwd root
+</code></pre>
+<p>6、输入命令后会让你设置密码，正确输入两次密码即可完成设置。然后你就可以通过ssh root账号和密码登录服务器了。</p>
 
                 
             </div>
@@ -536,7 +514,7 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xn--uf4a.xn--5tzm5g/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/">http://www.xn--uf4a.xn--5tzm5g/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/</a>
+                    <a href="http://www.xn--uf4a.xn--5tzm5g/2021/10/26/gcp-kai-qi-ssh-mi-ma-deng-lu/">http://www.xn--uf4a.xn--5tzm5g/2021/10/26/gcp-kai-qi-ssh-mi-ma-deng-lu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -574,12 +552,12 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vSphere/">
-                                    <span class="chip bg-color">vSphere</span>
+                                <a href="/tags/GCP/">
+                                    <span class="chip bg-color">GCP</span>
                                 </a>
                             
-                                <a href="/tags/vGPU/">
-                                    <span class="chip bg-color">vGPU</span>
+                                <a href="/tags/ssh/">
+                                    <span class="chip bg-color">ssh</span>
                                 </a>
                             
                         </div>
@@ -629,13 +607,13 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/10/26/rclone-shang-chuan-can-shu/">
+                <a href="/2021/10/26/dian-ying-0day-ming-ming-fang-shi-de-ao-mi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Rclone上传参数">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="电影0day命名方式的奥秘">
                         
-                        <span class="card-title">Rclone上传参数</span>
+                        <span class="card-title">电影0day命名方式的奥秘</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -650,23 +628,11 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Rclone/" class="post-category">
-                                    Rclone
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            zyz
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Rclone/">
-                        <span class="chip bg-color">Rclone</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -678,13 +644,13 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/09/quan-wang-zui-quan-esxi6-7-ge-ge-ban-ben-xia-zai-bao-han-fa-bu-shi-jian-ban-ben-hao-md5sha1/">
+                <a href="/2021/10/26/google-ban-shan-zhi-zhu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Google搬山之术">
                         
-                        <span class="card-title">全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1</span>
+                        <span class="card-title">Google搬山之术</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -695,14 +661,14 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="post-category">
-                                    虚拟机
+                            <a href="/categories/Google/" class="post-category">
+                                    Google
                                 </a>
                             
                             
@@ -712,12 +678,12 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vSphere/">
-                        <span class="chip bg-color">vSphere</span>
+                    <a href="/tags/Google/">
+                        <span class="chip bg-color">Google</span>
                     </a>
                     
-                    <a href="/tags/ESXI/">
-                        <span class="chip bg-color">ESXI</span>
+                    <a href="/tags/Google-Drive/">
+                        <span class="chip bg-color">Google Drive</span>
                     </a>
                     
                 </div>

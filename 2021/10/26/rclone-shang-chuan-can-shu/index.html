@@ -7,7 +7,7 @@ charset="utf-8"></script>
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置, 支援鑫">
+    <meta name="keywords" content="Rclone上传参数, 支援鑫">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@ charset="utf-8"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置 | 支援鑫</title>
+    <title>Rclone上传参数 | 支援鑫</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -291,12 +291,12 @@ charset="utf-8"></script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置</h1>
+                    <h1 class="description center-align post-title">Rclone上传参数</h1>
                 </div>
             </div>
         </div>
@@ -412,12 +412,8 @@ charset="utf-8"></script>
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vSphere/">
-                                <span class="chip bg-color">vSphere</span>
-                            </a>
-                        
-                            <a href="/tags/vGPU/">
-                                <span class="chip bg-color">vGPU</span>
+                            <a href="/tags/Rclone/">
+                                <span class="chip bg-color">Rclone</span>
                             </a>
                         
                     </div>
@@ -428,8 +424,8 @@ charset="utf-8"></script>
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="post-category">
-                                虚拟机
+                            <a href="/categories/Rclone/" class="post-category">
+                                Rclone
                             </a>
                         
                     </div>
@@ -441,7 +437,7 @@ charset="utf-8"></script>
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-09
+                    2021-10-26
                 </div>
                 
 
@@ -450,14 +446,14 @@ charset="utf-8"></script>
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    781
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -477,39 +473,39 @@ charset="utf-8"></script>
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在vSphere平台下安装vGPU驱动之前需要打开ESXi的SSH服务，方便来传输vib驱动安装包以及后面一些命令行的操作。</p>
-<p>ESXi需要加入vCenter，vGPU相关的一些配置都需要在vCenter下来修改。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2131086977.png" alt="img"></a></p>
-<p>使用WinSCP把驱动vib传到ESXi的/tmp目录下</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1250825920.png" alt="img"></a></p>
-<p>安装驱动之前先检查一下GPU是否被正常识别到，SSH到ESXi，使用命令：<strong>lspci | grep NVIDIA</strong> 来检查。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1809989337.png" alt="img"></a></p>
-<p>到/tmp目录下，赋予vib驱动包可执行权限，然后使用esxcli命令进行安装，注意ESXi主机需要处于维护模式，可以在web client上修改，也可以在安装时加上–maintenance-mode参数。</p>
-<pre class=" language-cmd"><code class="language-cmd">cd /tmp
-chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mode
+                <p>我的上传命令用的是这个</p>
+<pre><code>rclone copy /zyz GD:zyz
 </code></pre>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/149448893.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/149448893.png" alt="img"></a></p>
-<p>等待几分钟，安装成功以后会有提示信息，可能在安装信息中提示不需要重启，但是强烈建议重启一下主机来验证驱动是否正常，有碰到过重启以后驱动报错的情况。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1328377712.png" alt="img"></a></p>
-<p>重启完主机以后使用 <strong>nvidia-smi</strong> 命令来验证驱动是否正常，正常情况下能看到类似如下信息：</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2217482415.png" alt="img"></a></p>
-<p>特别注意2点：1、ECC模式是否显示off  2、默认情况下vSphere会使用vsga模式，而不是vGPU模式，所以能看到最下面xorg条目，这个我们后面改。</p>
-<p>在部分时候，特别是使用全新的GPU，可能会看到nvidia-smi信息里面ECC区域不是off状态，而是0，这说明你现在的ECC是启用的状态，并不是所有vgpu都可以使用ECC，如果你不能确认你的环境是否需要启用ECC，那建议先关闭ECC。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/2654749240.png" alt="img"></a></p>
-<p>使用命令来关闭ECC，注意，启用或者关闭ECC都需要重启主机。</p>
-<p><strong>nvidia-smi -e 0</strong></p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/1378805658.png" alt="img"></a></p>
-<p>更多关于ECC的信息，请参考：</p>
-<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory">https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#disabling-enabling-ecc-memory</a></p>
-<p>在确认驱动状态没问题以后，我们登陆vCenter，定位到<strong>主机-配置-图形</strong>，编辑<strong>主机图形设置</strong>，可以看到默认是共享模式，也就是vsga，我们需要切换到<strong>“直接共享“</strong>才能使用vGPU。</p>
-<p>2种GPU分配策略，在有多个GPU的时候生效。</p>
-<p>默认最佳性能模式，会在所有可能的GPU上去运行虚拟机，即VM1运行在GPU1、VM2运行在GPU2，以此类推，尽可能平均的分布虚拟机，不会让GPU闲着。</p>
-<p>GPU整合模式，会在一个GPU核心上运行先启动的虚拟机，直到当前GPU没有资源才会去使用下一个GPU核心，这个模式多用在同一台服务器上运行多个vGPU profile的情况下。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/696802411.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/696802411.png" alt="img"></a></p>
-<p>除了主机的图形选项，针对每个GPU也都可以单独设置共享模式，第一次使用需要在这里再切换一下，主要是需要重启xorg服务来改变配置，不同vSphere版本界面可能不能，部分vSphere 6.5早期版本需要手动重启xorg服务。</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/682515054.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/682515054.png" alt="img"></a></p>
-<p>更改成功以后就没有xorg条目了，可以开始使用vGPU了！</p>
-<p><a target="_blank" rel="noopener" href="https://www.dingqian.net/usr/uploads/2020/03/51672901.png"><img src="https://www.dingqian.net/usr/uploads/2020/03/51672901.png" alt="img"></a></p>
+<h2 id="常用附加参数"><a href="#常用附加参数" class="headerlink" title="常用附加参数"></a>常用附加参数</h2><p>–ignore-existing -u -v -P –transfers=10 –ignore-errors –buffer-size=100M –check-first –checkers=10</p>
+<p>–ignore-existing<br>使用此选项将使rclone无条件地跳过目标上存在的所有文件，无论这些文件的内容如何。</p>
+<p>尽管通常不建议使用此选项，但在文件由于加密而更改的情况下很有用。但是，在传输中断的情况下，它无法纠正部分传输。</p>
+<h2 id="个人建议"><a href="#个人建议" class="headerlink" title="个人建议"></a>个人建议</h2><p>和U/check一起时候需要注意冲突（虽然也能执行，效果不同），根据需求开启</p>
+<p>–check-first –checkers=10<br>如果设置了此标志，则在一sync，copy或move，rclone会做所有的检查，看是否文件需要做任何的转移之前转移。通常，rclone将尽快开始运行传输。</p>
+<p>该标志在传输受限于IO的IO受限系统上很有用。</p>
+<p>使用此标志可以占用更多内存，因为它实际上设置 –max-backlog为无限。这意味着在传输开始之前，所有有关传输对象的信息都保存在内存中。<br>要并行运行的检查程序的数量。校验器在同步期间对文件进行相等性检查。对于某些存储系统（例如S3，Swift，Dropbox），这可能会花费大量时间，因此它们可以并行运行。<br>默认为并行运行8个检查程序。<br>个人建议<br>如果你带宽跑不满，那就往上拉，小文件多，也往上拉，注意内存使用</p>
+<p>另外Gclone不支持这个，Rclone/Fclone正常</p>
+<p>-u<br>这将强制rclone跳过目标上存在的任何文件，并且修改后的时间比源文件新。</p>
+<p>当直接传输到不支持mod时间的远程服务器（或–use-server-modtime用于避免额外的API调用）时，此方法很有用，因为它比–size-only检查更准确，比using更快–checksum。</p>
+<p>如果现有目标文件的修改时间与源文件的修改时间相等（在计算的修改窗口精度内），则文件大小不同时将对其进行更新。如果–checksum设置为，则如果校验和也不同，则rclone将更新目标。</p>
+<p>如果现有目标文件早于源文件，则如果大小或校验和与源文件不同，它将被更新。</p>
+<p>在不直接（或使用–use-server-modtime）不支持mod时间的遥控器上， 检查的时间将是上载的时间。这意味着，如果上载到这些远程控制器之一，则rclone将跳过目标上存在的任何文件，并且上载时间比源文件的修改时间新。</p>
+<p>-v</p>
+<p>使用-vrclone可以告诉您有关传输的每个文件以及少量重要事件的信息。</p>
+<p>使用-vvrclone会变得非常冗长，告诉您它考虑和传输的每个文件。请发送带有此设置的日志的错误报告。</p>
+<p>-P</p>
+<p>该标志使rclone更新终端中静态块中的统计信息，从而提供传输的实时概览。</p>
+<p>任何日志消息都将滚动到静态块上方。日志消息会将静态块向下推到将要停留的终端底部。</p>
+<p>通常，此间隔每500mS更新一次，但是可以用该–stats标志覆盖该时间段。<br>可以与–stats-one-line标志一起使用，以简化显示。<br>注意：在Windows上，在修复此错误之前， 所有非ASCII字符都将在使用.时 替换–progress为。</p>
+<p>–transfers=10<br>要并行运行的文件传输数。如果遥控器的超时时间很多，将其设置为较小的值有时会很有用；如果您的带宽较大且使用快速的遥控器，则将其设置为更大的值有时会很有用。</p>
+<p>默认为并行运行4个文件传输。</p>
+<p>–buffer-size=200M</p>
+<p>使用此大小的缓冲区可加快文件传输速度。每个人都–transfer 将使用这么多的内存进行缓冲。</p>
+<p>当使用mount或cmount每个打开的文件描述符时，都将使用这么多的内存进行缓冲。有关更多详细信息，请参见安装文档。</p>
+<p>设置为0禁用缓冲以最小化内存使用量。</p>
+<p>请注意，缓冲区的内存分配受 –use-mmap标志的影响。</p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><p>默认据说是16M，内存占用量大概就是buffer-size和transfers的乘积</p>
+<p>10X200M=2G，但是实际占用更大，大概在4G左右</p>
+<p>–ignore-errors<br>跳过错误。比如 OneDrive 在传了某些特殊文件后会提示Failed to copy: failed to open source object: malwareDetected: Malware detected，这会导致后续的传输任务被终止掉，此时就可以加上这个参数跳过错误。但需要注意 RCLONE 的退出状态码不会为0。</p>
 
                 
             </div>
@@ -536,7 +532,7 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xn--uf4a.xn--5tzm5g/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/">http://www.xn--uf4a.xn--5tzm5g/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/</a>
+                    <a href="http://www.xn--uf4a.xn--5tzm5g/2021/10/26/rclone-shang-chuan-can-shu/">http://www.xn--uf4a.xn--5tzm5g/2021/10/26/rclone-shang-chuan-can-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -574,12 +570,8 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vSphere/">
-                                    <span class="chip bg-color">vSphere</span>
-                                </a>
-                            
-                                <a href="/tags/vGPU/">
-                                    <span class="chip bg-color">vGPU</span>
+                                <a href="/tags/Rclone/">
+                                    <span class="chip bg-color">Rclone</span>
                                 </a>
                             
                         </div>
@@ -629,13 +621,13 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/10/26/rclone-shang-chuan-can-shu/">
+                <a href="/2021/10/26/google-ban-shan-zhi-zhu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Rclone上传参数">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Google搬山之术">
                         
-                        <span class="card-title">Rclone上传参数</span>
+                        <span class="card-title">Google搬山之术</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -652,8 +644,8 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Rclone/" class="post-category">
-                                    Rclone
+                            <a href="/categories/Google/" class="post-category">
+                                    Google
                                 </a>
                             
                             
@@ -663,8 +655,12 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Rclone/">
-                        <span class="chip bg-color">Rclone</span>
+                    <a href="/tags/Google/">
+                        <span class="chip bg-color">Google</span>
+                    </a>
+                    
+                    <a href="/tags/Google-Drive/">
+                        <span class="chip bg-color">Google Drive</span>
                     </a>
                     
                 </div>
@@ -678,13 +674,13 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/09/quan-wang-zui-quan-esxi6-7-ge-ge-ban-ben-xia-zai-bao-han-fa-bu-shi-jian-ban-ben-hao-md5sha1/">
+                <a href="/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置">
                         
-                        <span class="card-title">全网最全ESXI6-7各个版本下载包含发布时间版本号MD5SHA1</span>
+                        <span class="card-title">VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -716,8 +712,8 @@ chmod +x NVIDIA\esxcli software vib install -v /tmp/NVIDIA\.vib --maintenance-mo
                         <span class="chip bg-color">vSphere</span>
                     </a>
                     
-                    <a href="/tags/ESXI/">
-                        <span class="chip bg-color">ESXI</span>
+                    <a href="/tags/vGPU/">
+                        <span class="chip bg-color">vGPU</span>
                     </a>
                     
                 </div>

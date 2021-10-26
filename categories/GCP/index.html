@@ -7,7 +7,7 @@ charset="utf-8"></script>
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: vGPU, 支援鑫">
+    <meta name="keywords" content="分类: GCP, 支援鑫">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@ charset="utf-8"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: vGPU | 支援鑫</title>
+    <title>分类: GCP | 支援鑫</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -339,125 +339,116 @@ charset="utf-8"></script>
 
     
 
-<div id="tags" class="container chip-container">
+<div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
             </div>
             <div class="tag-chips">
                 
                 
-                <a href="/tags/GCP/" title="GCP: 1">
+                
+                <a href="/categories/GCP/" title="GCP: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="GCP" style="background-color: #F9EBEA;">GCP
+                             chip-active "
+                            style="background-color: #F9EBEA;">GCP
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/ssh/" title="ssh: 1">
+                <a href="/categories/Google/" title="Google: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="ssh" style="background-color: #F5EEF8;">ssh
+                            style="background-color: #F5EEF8;">Google
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/Google/" title="Google: 1">
+                <a href="/categories/Rclone/" title="Rclone: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Google" style="background-color: #D5F5E3;">Google
+                            style="background-color: #D5F5E3;">Rclone
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/Google-Drive/" title="Google Drive: 1">
+                <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="虚拟机: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Google Drive" style="background-color: #E8F8F5;">Google Drive
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Rclone/" title="Rclone: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Rclone" style="background-color: #FEF9E7;">Rclone
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/vSphere/" title="vSphere: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="vSphere" style="background-color: #F8F9F9;">vSphere
+                            style="background-color: #E8F8F5;">虚拟机
                         <span class="tag-length">2</span>
                     </span>
                 </a>
                 
-                
-                <a href="/tags/vGPU/" title="vGPU: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="vGPU" style="background-color: #82E0AA;">vGPU
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/ESXI/" title="ESXI: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ESXI" style="background-color: #D7BDE2;">ESXI
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
                 
             </div>
         </div>
     </div>
 </div>
 
+
     
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
             
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="vSphere, vGPU" data-aos="fade-up">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/10/09/vmware-vsphere-xia-nvidia-vgpu-qu-dong-de-an-zhuang-he-pei-zhi/">
+                    <a href="/2021/10/26/gcp-kai-qi-ssh-mi-ma-deng-lu/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="GCP开启ssh密码登陆">
                             
-                            <span class="card-title">VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置</span>
+                            <span class="card-title">GCP开启ssh密码登陆</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                一、开启密码登陆1、修改ssh配置文件nano /etc/ssh/sshd_config
+
+2、修改下面两个参数，把no改为yesPermitRootLogin no
+
+PasswordAuthentication no
+
+3、更改完毕使用
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="post-category">
-                                虚拟机
+                                <a href="/categories/GCP/" class="post-category">
+                                    GCP
                                 </a>
                                 
                                 
                             </span>
                         </div>
                     </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/GCP/">
+                            <span class="chip bg-color">GCP</span>
+                        </a>
+                        
+                        <a href="/tags/ssh/">
+                            <span class="chip bg-color">ssh</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             

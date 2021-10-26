@@ -6,7 +6,7 @@
   <link href="http://www.郑.网站/atom.xml" rel="self"/>
   
   <link href="http://www.郑.网站/"/>
-  <updated>2021-10-12T03:40:47.984Z</updated>
+  <updated>2021-10-26T03:33:16.788Z</updated>
   <id>http://www.郑.网站/</id>
   
   <author>
@@ -15,6 +15,109 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>电影0day命名方式的奥秘</title>
+    <link href="http://www.郑.网站/2021/10/26/dian-ying-0day-ming-ming-fang-shi-de-ao-mi/"/>
+    <id>http://www.郑.网站/2021/10/26/dian-ying-0day-ming-ming-fang-shi-de-ao-mi/</id>
+    <published>2021-10-26T03:28:49.000Z</published>
+    <updated>2021-10-26T03:33:16.788Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;如果你是一位追求高清的电影的绅士或是经常混迹 &lt;code&gt;PT&lt;/code&gt; 站的，那么一定喜欢现&lt;code&gt;4K&lt;/code&gt; 蓝光电影的超高画质。在 &lt;code&gt;4K UHD&lt;/code&gt; 蓝光格式被宣告破解后，网上已涌现了大量的 4K</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GCP开启ssh密码登陆</title>
+    <link href="http://www.郑.网站/2021/10/26/gcp-kai-qi-ssh-mi-ma-deng-lu/"/>
+    <id>http://www.郑.网站/2021/10/26/gcp-kai-qi-ssh-mi-ma-deng-lu/</id>
+    <published>2021-10-26T03:22:22.000Z</published>
+    <updated>2021-10-26T03:23:49.001Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、开启密码登陆&quot;&gt;&lt;a href=&quot;#一、开启密码登陆&quot; class=&quot;headerlink&quot; title=&quot;一、开启密码登陆&quot;&gt;&lt;/a&gt;一、开启密码登陆&lt;/h1&gt;&lt;h2 id=&quot;1、修改ssh配置文件&quot;&gt;&lt;a href=&quot;#1、修改ssh配置文件&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="GCP" scheme="http://www.郑.网站/categories/GCP/"/>
+    
+    
+    <category term="GCP" scheme="http://www.郑.网站/tags/GCP/"/>
+    
+    <category term="ssh" scheme="http://www.郑.网站/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Google搬山之术</title>
+    <link href="http://www.郑.网站/2021/10/26/google-ban-shan-zhi-zhu/"/>
+    <id>http://www.郑.网站/2021/10/26/google-ban-shan-zhi-zhu/</id>
+    <published>2021-10-26T03:18:30.000Z</published>
+    <updated>2021-10-26T03:21:43.098Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;系统环境：-CentOS-7-x64&quot;&gt;&lt;a href=&quot;#系统环境：-CentOS-7-x64&quot; class=&quot;headerlink&quot; title=&quot;系统环境： CentOS 7 x64&quot;&gt;&lt;/a&gt;&lt;strong&gt;系统环境：&lt;/strong&gt; CentOS 7</summary>
+        
+      
+    
+    
+    
+    <category term="Google" scheme="http://www.郑.网站/categories/Google/"/>
+    
+    
+    <category term="Google" scheme="http://www.郑.网站/tags/Google/"/>
+    
+    <category term="Google Drive" scheme="http://www.郑.网站/tags/Google-Drive/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Rclone上传参数</title>
+    <link href="http://www.郑.网站/2021/10/26/rclone-shang-chuan-can-shu/"/>
+    <id>http://www.郑.网站/2021/10/26/rclone-shang-chuan-can-shu/</id>
+    <published>2021-10-26T03:13:45.000Z</published>
+    <updated>2021-10-26T03:16:36.277Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我的上传命令用的是这个&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rclone copy /zyz GD:zyz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;常用附加参数&quot;&gt;&lt;a href=&quot;#常用附加参数&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Rclone" scheme="http://www.郑.网站/categories/Rclone/"/>
+    
+    
+    <category term="Rclone" scheme="http://www.郑.网站/tags/Rclone/"/>
+    
+  </entry>
   
   <entry>
     <title>VMware vSphere 下 NVIDIA vGPU 驱动的安装和配置</title>
